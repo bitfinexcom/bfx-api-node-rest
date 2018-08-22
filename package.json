@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "bfx-api-mock-srv": "git+https://github.com/bitfinexcom/bfx-api-mock-srv.git",
+    "bfx-api-node-models": "bitfinexcom/bfx-api-node-models",
     "chai": "^3.4.1",
     "mocha": "^3.4.2",
     "standard": "^10.0.2"

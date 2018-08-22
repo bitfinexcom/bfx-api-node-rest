@@ -2,5 +2,5 @@
 
 module.exports = {
   RESTv1: require('./lib/rest'),
-  RESTv2: require('./lib/rest2'),
+  RESTv2: require('./lib/rest2')
 }
