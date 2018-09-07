@@ -1,0 +1,51 @@
+{
+  "name": "bfx-api-node-rest",
+  "version": "2.0.0-beta.1",
+  "description": "Official Bitfinex REST v1 & v2 API interfaces",
+  "engines": {
+    "node": ">=7"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "test": "npm run lint && npm run unit",
+    "unit": "NODE_ENV=test mocha -b --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitfinexcom/bfx-api-node-rest.git"
+  },
+  "keywords": [
+    "bitfinex",
+    "bitcoin",
+    "BTC"
+  ],
+  "contributors": [
+    "Josh Rossi <josh@bitfinex.com> (https://www.bitfinex.com)",
+    "Cris Mihalache <cris.m@bitfinex.com> (https://www.bitfinex.com)",
+    "Robert Kowalski <robert@bitfinex.com> (https://www.bitfinex.com)",
+    "Simone Poggi <simone@bitfinex.com> (https://www.bitfinex.com)",
+    "Paolo Ardoino <paolo@bitfinex.com> (https://www.bitfinex.com)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bitfinexcom/bfx-api-node-rest/issues"
+  },
+  "devDependencies": {
+    "bfx-api-mock-srv": "git+https://github.com/bitfinexcom/bfx-api-mock-srv.git",
+    "bfx-api-node-models": "bitfinexcom/bfx-api-node-models",
+    "chai": "^3.4.1",
+    "mocha": "^3.4.2",
+    "standard": "^10.0.2"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "debug": "^2.2.0",
+    "lodash": "^4.17.4",
+    "request": "^2.67.0",
+    "request-promise": "^4.2.0",
+    "bfx-api-node-util": "bitfinexcom/bfx-api-node-util",
+    "bfx-api-node-core": "bitfinexcom/bfx-api-node-core",
+    "bfx-api-node-models": "bitfinexcom/bfx-api-node-models"
+  }
+}
