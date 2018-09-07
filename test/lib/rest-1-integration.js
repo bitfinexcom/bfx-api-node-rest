@@ -5,7 +5,7 @@ const PORT = 1337
 
 const assert = require('assert')
 const http = require('http')
-const RESTv1 = require('../../lib/rest')
+const RESTv1 = require('../../lib/rest1')
 
 describe('rest integration test', () => {
   it('should get the fundingbook asks, zero bids, 100 asks', (done) => {

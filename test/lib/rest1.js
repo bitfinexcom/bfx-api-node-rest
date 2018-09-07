@@ -6,7 +6,7 @@
 const assert = require('assert')
 const { expect } = require('chai')
 const DNS = require('dns')
-const RESTv1 = require('../../lib/rest')
+const RESTv1 = require('../../lib/rest1')
 const _ = require('lodash')
 
 describe('REST v1', () => {
