@@ -33,7 +33,6 @@
   },
   "devDependencies": {
     "bfx-api-mock-srv": "git+https://github.com/bitfinexcom/bfx-api-mock-srv.git",
-    "bfx-api-node-models": "bitfinexcom/bfx-api-node-models",
     "chai": "^3.4.1",
     "mocha": "^3.4.2",
     "standard": "^10.0.2"
@@ -45,7 +44,6 @@
     "request": "^2.67.0",
     "request-promise": "^4.2.0",
     "bfx-api-node-util": "bitfinexcom/bfx-api-node-util",
-    "bfx-api-node-core": "bitfinexcom/bfx-api-node-core",
     "bfx-api-node-models": "bitfinexcom/bfx-api-node-models"
   }
 }
