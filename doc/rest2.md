@@ -7,8 +7,6 @@ Communicates with v2 of the Bitfinex HTTP API
 
 * [RESTv2](#RESTv2)
     * [new RESTv2(opts)](#new_RESTv2_new)
-    * ~~[._makePublicLegacyRequest(method, cb)](#RESTv2+_makePublicLegacyRequest) ⇒ <code>Promise</code>~~
-    * [._makeAuthLegacyRequest(method, params, cb)](#RESTv2+_makeAuthLegacyRequest) ⇒ <code>Promise</code>
     * [.status(cb)](#RESTv2+status) ⇒ <code>Promise</code>
     * [.ticker(symbol, cb)](#RESTv2+ticker) ⇒ <code>Promise</code>
     * [.tickers(symbols, cb)](#RESTv2+tickers) ⇒ <code>Promise</code>
@@ -71,36 +69,6 @@ Instantiate a new REST v2 transport.
 | opts.url | <code>string</code> | endpoint URL |
 | opts.transform | <code>boolean</code> | default false |
 | opts.agent | <code>Object</code> | optional node agent for connection (proxy) |
-
-<a name="RESTv2+_makePublicLegacyRequest"></a>
-
-### ~~resTv2._makePublicLegacyRequest(method, cb) ⇒ <code>Promise</code>~~
-***Deprecated***
-
-Legacy REST1 public method wrapper, that also provides legacy cb
-support. Oh my!
-
-**Kind**: instance method of <code>[RESTv2](#RESTv2)</code>  
-**Returns**: <code>Promise</code> - p - use this  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| method | <code>string</code> | REST1 method name |
-| cb | <code>Method</code> | optional legacy cb |
-
-<a name="RESTv2+_makeAuthLegacyRequest"></a>
-
-### resTv2._makeAuthLegacyRequest(method, params, cb) ⇒ <code>Promise</code>
-See _makePublicLegacyRequest
-
-**Kind**: instance method of <code>[RESTv2](#RESTv2)</code>  
-**Returns**: <code>Promise</code> - p  
-
-| Param | Type |
-| --- | --- |
-| method | <code>string</code> | 
-| params | <code>Object</code> | 
-| cb | <code>Method</code> | 
 
 <a name="RESTv2+status"></a>
 
