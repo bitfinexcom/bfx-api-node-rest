@@ -106,6 +106,8 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['activeOrders', 'active_orders'],
     ['orderHistory', 'orders.sym.start.end.limit', ['sym', 'start', 'end', 'limit']],
     ['positions'],
+    ['positionsHistory', 'positions.start.end.limit', ['start', 'end', 'limit']],
+    ['positionsAudit', 'positions.id.start.end.limit', ['id', 'start', 'end', 'limit']],
     ['fundingOffers', 'f_offers.sym', ['sym']],
     ['fundingOfferHistory', 'f_offer_hist.sym.start.end.limit', ['sym', 'start', 'end', 'limit']],
     ['fundingLoans', 'f_loans.sym', ['sym']],
