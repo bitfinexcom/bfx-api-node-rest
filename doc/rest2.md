@@ -19,6 +19,7 @@ Communicates with v2 of the Bitfinex HTTP API
     * [.trades(symbol, start, end, limit, sort, cb)](#RESTv2+trades) ⇒ <code>Promise</code>
     * [.accountTrades(symbol, start, end, limit, sort, cb)](#RESTv2+accountTrades) ⇒ <code>Promise</code>
     * [.wallets(cb)](#RESTv2+wallets) ⇒ <code>Promise</code>
+    * [.walletsHistory(end,cb)](#RESTv2+walletsHistory) ⇒ <code>Promise</code>
     * [.userInfo(cb)](#RESTv2+userInfo) ⇒ <code>Promise</code>
     * [.activeOrders(cb)](#RESTv2+activeOrders) ⇒ <code>Promise</code>
     * [.movements(ccy, start, end, limit, cb)](#RESTv2+movements) ⇒ <code>Promise</code>
@@ -228,6 +229,19 @@ Get a list of valid currencies ids and full names
 | --- | --- |
 | cb | <code>Method</code> |
 
+
+<a name="RESTv2+walletsHistory"></a>
+
+### resTv2.walletsHistory(end, cb) ⇒ <code>Promise</code>
+**Kind**: instance method of <code>[RESTv2](#RESTv2)</code>  
+**Returns**: <code>Promise</code> - p  
+**See**: https://docs.bitfinex.com/v2/reference#rest-auth-wallets-history
+
+| Param | Type |
+| --- | --- |
+| end | <code>number</code> | <code></code> |  |
+| cb | <code>Method</code> |  
+
 <a name="RESTv2+userInfo"></a>
 
 ### resTv2.userInfo(cb) ⇒ <code>Promise</code>
@@ -322,6 +336,7 @@ Get a list of valid currencies ids and full names
 | --- | --- |
 | cb | <code>Method</code> |
 
+
 <a name="RESTv2+positionsAudit"></a>
 
 ### resTv2.positionsAudit(id, start, end, limit, cb) ⇒ <code>Promise</code>
@@ -350,6 +365,7 @@ Get a list of valid currencies ids and full names
 | end | <code>number</code> | <code></code> |
 | limit | <code>number</code> | <code></code> |
 | cb | <code>Method</code> |
+
 
 <a name="RESTv2+fundingOffers"></a>
 
