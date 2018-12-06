@@ -10,6 +10,7 @@ Communicates with v2 of the Bitfinex HTTP API
     * [.status(cb)](#RESTv2+status) ⇒ <code>Promise</code>
     * [.ticker(symbol, cb)](#RESTv2+ticker) ⇒ <code>Promise</code>
     * [.tickers(symbols, cb)](#RESTv2+tickers) ⇒ <code>Promise</code>
+    * [.tickersHistory(symbols, start, end, limit, cb)](#RESTv2+tickersHistory) ⇒ <code>Promise</code>
     * [.stats(key, context, cb)](#RESTv2+stats) ⇒ <code>Promise</code>
     * [.candles(opts, cb)](#RESTv2+candles) ⇒ <code>Promise</code>
     * [.currencies(cb)](#RESTv2+currencies) ⇒ <code>Promise</code>
@@ -107,6 +108,23 @@ Instantiate a new REST v2 transport.
 | --- | --- |
 | symbols | <code>Array.&lt;string&gt;</code> |
 | cb | <code>Method</code> |
+
+
+<a name="RESTv2+tickersHistory"></a>
+
+### resTv2.tickersHistory(symbols, start, end, limit, cb) ⇒ <code>Promise</code>
+**Kind**: instance method of <code>[RESTv2](#RESTv2)</code>  
+**Returns**: <code>Promise</code> - p  
+**See**: https://docs.bitfinex.com/v2/reference#rest-public-tickers-history  
+
+| Param | Type |
+| --- | --- |
+| symbols | <code>Array.&lt;string&gt;</code> |
+| start | <code>number</code> | <code></code> |  |
+| end | <code>number</code> | <code></code> |  |
+| limit | <code>number</code> | <code></code> |  |
+| cb | <code>Method</code> |
+
 
 <a name="RESTv2+stats"></a>
 
@@ -241,6 +259,7 @@ Get a list of valid currencies ids and full names
 | --- | --- |
 | end | <code>number</code> | <code></code> |  |
 | cb | <code>Method</code> |  
+
 
 <a name="RESTv2+userInfo"></a>
 
