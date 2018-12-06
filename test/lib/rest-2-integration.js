@@ -94,6 +94,7 @@ describe('RESTv2 integration (mock server) tests', () => {
     // public
     ['ticker', 'ticker.tBTCUSD', ['tBTCUSD']],
     ['tickers', 'tickers', [['tBTCUSD', 'tETHUSD']]],
+    ['tickersHistory', 'tickers_hist', [['tBTCUSD', 'tETHUSD'], 'start', 'end', 'limit']],
     ['stats', 'stats.key.context', ['key', 'context']],
     ['candles', 'candles.trade:30m:tBTCUSD.hist', [{ timeframe: '30m', symbol: 'tBTCUSD', section: 'hist' }]],
 
