@@ -27,6 +27,8 @@ Communicates with v2 of the Bitfinex HTTP API
     * [.orderHistory(symbol, start, end, limit, cb)](#RESTv2+orderHistory) ⇒ <code>Promise</code>
     * [.orderTrades(symbol, start, end, limit, orderID, cb)](#RESTv2+orderTrades) ⇒ <code>Promise</code>
     * [.positions(cb)](#RESTv2+positions) ⇒ <code>Promise</code>
+    * [.positionsAudit(id, start, end, limit, cb)](#RESTv2+positionsAudit) ⇒ <code>Promise</code>
+    * [.positionsHistory(start, end, limit, cb)](#RESTv2+positionsHistory) ⇒ <code>Promise</code>
     * [.fundingOffers(symbol, cb)](#RESTv2+fundingOffers) ⇒ <code>Promise</code>
     * [.fundingOfferHistory(symbol, start, end, limit, cb)](#RESTv2+fundingOfferHistory) ⇒ <code>Promise</code>
     * [.fundingLoans(symbol, cb)](#RESTv2+fundingLoans) ⇒ <code>Promise</code>
@@ -227,6 +229,7 @@ Get a list of valid currencies ids and full names
 | --- | --- |
 | cb | <code>Method</code> |
 
+
 <a name="RESTv2+walletsHistory"></a>
 
 ### resTv2.walletsHistory(end, cb) ⇒ <code>Promise</code>
@@ -332,6 +335,37 @@ Get a list of valid currencies ids and full names
 | Param | Type |
 | --- | --- |
 | cb | <code>Method</code> |
+
+
+<a name="RESTv2+positionsAudit"></a>
+
+### resTv2.positionsAudit(id, start, end, limit, cb) ⇒ <code>Promise</code>
+**Kind**: instance method of <code>[RESTv2](#RESTv2)</code>  
+**Returns**: <code>Promise</code> - p  
+**See**: https://docs.bitfinex.com/v2/reference#rest-auth-positions-audit
+
+| Param | Type |
+| --- | --- |
+| symbol | <code>string</code> | <code>&quot;tBTCUSD&quot;</code> |
+| start | <code>number</code> | <code></code> |
+| end | <code>number</code> | <code></code> |
+| limit | <code>number</code> | <code></code> |
+| cb | <code>Method</code> |
+
+<a name="RESTv2+positionsHistory"></a>
+
+### resTv2.positionsHistory(start, end, limit, cb) ⇒ <code>Promise</code>
+**Kind**: instance method of <code>[RESTv2](#RESTv2)</code>  
+**Returns**: <code>Promise</code> - p  
+**See**: https://docs.bitfinex.com/v2/reference#rest-auth-positions-history
+
+| Param | Type |
+| --- | --- |
+| start | <code>number</code> | <code></code> |
+| end | <code>number</code> | <code></code> |
+| limit | <code>number</code> | <code></code> |
+| cb | <code>Method</code> |
+
 
 <a name="RESTv2+fundingOffers"></a>
 
