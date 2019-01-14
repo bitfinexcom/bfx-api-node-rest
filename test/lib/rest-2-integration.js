@@ -104,7 +104,7 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['alertDelete', 'alert_del.symbol.price', ['symbol', 'price']],
     ['accountTrades', 'trades.BTCUSD.0.10.50.1', ['BTCUSD', 0, 10, 50, 1]],
     ['wallets', 'wallets'],
-    ['walletsHistory', 'wallets_hist.end', ['end']],
+    ['walletsHistory', 'wallets_hist.end.currency', ['end', 'currency']],
     ['activeOrders', 'active_orders'],
     ['orderHistory', 'orders.sym.start.end.limit', ['sym', 'start', 'end', 'limit']],
     ['positions'],
