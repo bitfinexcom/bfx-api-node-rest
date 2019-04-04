@@ -542,7 +542,7 @@ Get a list of valid symbol names
 
 **Kind**: instance method of <code>[RESTv2](#RESTv2)</code>  
 **Returns**: <code>Promise</code> - p  
-**See**: https://docs.bitfinex.com/v1/reference#rest-public-symbols  
+**See**: https://docs.bitfinex.com/v2/reference#rest-public-symbols  
 
 | Param | Type | Description |
 | --- | --- | --- |
