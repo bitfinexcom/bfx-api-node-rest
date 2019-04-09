@@ -477,7 +477,7 @@ Get a list of valid currencies ids and full names
 
 | Param | Type | Default |
 | --- | --- | --- |
-| symbol | <code>string</code> | <code>&quot;tBTCUSD&quot;</code> |
+| symbol | <code>string</code> | optional, omit/leave empty for all |
 | start | <code>number</code> | <code></code> |
 | end | <code>number</code> | <code></code> |
 | limit | <code>number</code> | <code></code> |
