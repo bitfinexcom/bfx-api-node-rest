@@ -41,7 +41,8 @@ Communicates with v2 of the Bitfinex HTTP API
     * [.fundingInfo(key, cb)](#RESTv2+fundingInfo) ⇒ <code>Promise</code>
     * [.performance(cb)](#RESTv2+performance) ⇒ <code>Promise</code>
     * [.calcAvailableBalance(symbol, dir, rate, type, cb)](#RESTv2+calcAvailableBalance) ⇒ <code>Promise</code>
-    * ~~[.symbols(cb)](#RESTv2+symbols) ⇒ <code>Promise</code>~~
+    * [.symbols(cb)](#RESTv2+symbols) ⇒ <code>Promise</code>
+    * [.futures(cb)](#RESTv2+futures) ⇒ <code>Promise</code>
     * ~~[.symbolDetails(cb)](#RESTv2+symbolDetails) ⇒ <code>Promise</code>~~
     * ~~[.accountInfo(cb)](#RESTv2+accountInfo) ⇒ <code>Promise</code>~~
     * ~~[.accountFees(cb)](#RESTv2+accountFees) ⇒ <code>Promise</code>~~
@@ -535,14 +536,27 @@ Get a list of valid currencies ids and full names
 
 <a name="RESTv2+symbols"></a>
 
-### ~~resTv2.symbols(cb) ⇒ <code>Promise</code>~~
-***Deprecated***
+### resTv2.symbols(cb) ⇒ <code>Promise</code>
 
 Get a list of valid symbol names
 
 **Kind**: instance method of <code>[RESTv2](#RESTv2)</code>  
 **Returns**: <code>Promise</code> - p  
 **See**: https://docs.bitfinex.com/v2/reference#rest-public-symbols  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| cb | <code>Method</code> | legacy callback |
+
+<a name="RESTv2+futures"></a>
+
+### resTv2.futures(cb) ⇒ <code>Promise</code>
+
+Get a list of valid symbol names
+
+**Kind**: instance method of <code>[RESTv2](#RESTv2)</code>  
+**Returns**: <code>Promise</code> - p  
+**See**: https://docs.bitfinex.com/v2/reference#rest-public-futures
 
 | Param | Type | Description |
 | --- | --- | --- |
