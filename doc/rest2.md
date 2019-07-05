@@ -8,6 +8,7 @@ Communicates with v2 of the Bitfinex HTTP API
 * [RESTv2](#RESTv2)
     * [new RESTv2(opts)](#new_RESTv2_new)
     * [.status(cb)](#RESTv2+status) ⇒ <code>Promise</code>
+    * [.statusMessages(type, keys, cb)](#RESTv2+statusMessages) ⇒ <code>Promise</code>
     * [.ticker(symbol, cb)](#RESTv2+ticker) ⇒ <code>Promise</code>
     * [.tickers(symbols, cb)](#RESTv2+tickers) ⇒ <code>Promise</code>
     * [.tickersHistory(symbols, start, end, limit, cb)](#RESTv2+tickersHistory) ⇒ <code>Promise</code>
@@ -85,6 +86,20 @@ Instantiate a new REST v2 transport.
 | Param | Type |
 | --- | --- |
 | cb | <code>Method</code> |
+
+
+<a name="RESTv2+statusMessages"></a>
+
+### resTv2.statusMessages(type, keys, cb) ⇒ <code>Promise</code>
+**Kind**: instance method of <code>[RESTv2](#RESTv2)</code>  
+**Returns**: <code>Promise</code> - p  
+**See**: https://docs.bitfinex.com/v2/reference#[PUBLICATION PENDING]
+
+| Param | Type | Default |
+| --- | --- | --- |
+| type | <code>string</code> | <code>&quot;deriv&quot;</code> |
+| keys | <code>Array [string]</code> | <code>[&quot;ALL&quot;]</code> |
+| cb | <code>Method</code> |  |
 
 <a name="RESTv2+ticker"></a>
 
