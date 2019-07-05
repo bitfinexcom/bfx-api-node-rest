@@ -93,7 +93,7 @@ Instantiate a new REST v2 transport.
 ### resTv2.statusMessages(type, keys, cb) ⇒ <code>Promise</code>
 **Kind**: instance method of <code>[RESTv2](#RESTv2)</code>  
 **Returns**: <code>Promise</code> - p  
-**See**: https://docs.bitfinex.com/v2/reference#[PUBLICATION PENDING]
+**See**: https://docs.bitfinex.com/v2/reference#status
 
 | Param | Type | Default |
 | --- | --- | --- |
