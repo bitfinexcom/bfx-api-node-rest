@@ -43,6 +43,7 @@ Communicates with v2 of the Bitfinex HTTP API
     * [.calcAvailableBalance(symbol, dir, rate, type, cb)](#RESTv2+calcAvailableBalance) ⇒ <code>Promise</code>
     * [.symbols(cb)](#RESTv2+symbols) ⇒ <code>Promise</code>
     * [.futures(cb)](#RESTv2+futures) ⇒ <code>Promise</code>
+    * [.derivsPositionCollateralSet(symbol, collateral, cb)](#RESTv2+derivsPositionCollateralSet) ⇒ <code>Promise</code>
     * ~~[.symbolDetails(cb)](#RESTv2+symbolDetails) ⇒ <code>Promise</code>~~
     * ~~[.accountInfo(cb)](#RESTv2+accountInfo) ⇒ <code>Promise</code>~~
     * ~~[.accountFees(cb)](#RESTv2+accountFees) ⇒ <code>Promise</code>~~
@@ -561,6 +562,21 @@ Get a list of valid symbol names
 | Param | Type | Description |
 | --- | --- | --- |
 | cb | <code>Method</code> | legacy callback |
+
+<a name="RESTv2+derivsPositionCollateralSet"></a>
+### resTv2.derivsPositionCollateralSet(symbol, collateral, cb) ⇒ <code>Promise</code>
+
+Changes the collateral value of an active derivatives position for a certain pair.
+
+**Kind**: instance method of <code>[RESTv2](#RESTv2)</code>  
+**Returns**: <code>Promise</code> - p  
+**See**: https://docs.bitfinex.com/v2/reference#rest-auth-deriv-pos-collateral-set
+
+| Param | Type | Description |
+| --- | --- | --- |
+| symbol | <code>string</code> | <code>&quot;tBTCF0:USDF0&quot;</code> |
+| collateral | <code>number</code> |  |
+| cb | <code>Method</code> |  |
 
 <a name="RESTv2+symbolDetails"></a>
 
