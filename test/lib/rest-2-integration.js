@@ -119,6 +119,7 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['fundingTrades', 'f_trade_hist.sym.start.end.limit', ['sym', 'start', 'end', 'limit']],
     ['marginInfo', 'margin_info.k', ['k']],
     ['fundingInfo', 'f_info.k', ['k']],
+    ['derivsPositionCollateralSet', 'derivs_pos_col_set.symbol.collateral', ['symbol', 'collateral']],
     ['performance'],
     ['calcAvailableBalance', 'calc.sym.dir.rate.type', ['sym', 'dir', 'rate', 'type']]
   ]
