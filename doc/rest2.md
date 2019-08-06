@@ -15,6 +15,7 @@ Communicates with v2 of the Bitfinex HTTP API
     * [.stats(key, context, cb)](#RESTv2+stats) ⇒ <code>Promise</code>
     * [.candles(opts, cb)](#RESTv2+candles) ⇒ <code>Promise</code>
     * [.currencies(cb)](#RESTv2+currencies) ⇒ <code>Promise</code>
+    * [.liquidations(cb)](#RESTv2+liquidations) ⇒ <code>Promise</code>
     * [.alertList(type, cb)](#RESTv2+alertList) ⇒ <code>Promise</code>
     * [.alertSet(type, symbol, price)](#RESTv2+alertSet) ⇒ <code>Promise</code>
     * [.alertDelete(symbol, price)](#RESTv2+alertDelete) ⇒ <code>Promise</code>
@@ -183,6 +184,23 @@ Get a list of valid currencies ids and full names
 | Param | Type | Description |
 | --- | --- | --- |
 | cb | <code>Method</code> | legacy callback |
+
+<a name="RESTv2+liquidations"></a>
+
+### resTv2.liquidations (start, end, limit, sort, cb) ⇒ <code>Promise</code>
+Offers a feed of current and past liquidations
+
+**Kind**: instance method of <code>[RESTv2](#RESTv2)</code>  
+**Returns**: <code>Promise</code> - p  
+**See**: https://docs.bitfinex.com/v2/reference#rest-public-liquidations  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| start | <code>number</code> | <code></code> |  |
+| end | <code>number</code> | <code></code> |  |
+| limit | <code>number</code> | <code></code> |  |
+| sort | <code>number</code> | <code></code> | if 1, sorts results oldest first |
+| cb | <code>Method</code> |  |  |
 
 <a name="RESTv2+alertList"></a>
 
