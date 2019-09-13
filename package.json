@@ -43,7 +43,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "bfx-api-mock-srv": "bitfinexcom/bfx-api-mock-srv",
+    "bfx-api-mock-srv": "^1.0.0",
     "chai": "^4.2.0",
     "jsdoc-to-markdown": "^5.0.0",
     "mocha": "^6.2.0",
