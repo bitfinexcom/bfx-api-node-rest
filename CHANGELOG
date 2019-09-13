@@ -1,0 +1,69 @@
+# 1.1.4
+- manifest: bump deps
+- meta: add github issue/pr templates
+- meta: standardize travis config
+- meta: add example
+
+# 1.1.3
+- RESTv2: add liquidations method
+
+# 1.1.2
+- RESTv2: add derivsPositionCollateralSet method
+- RESTv2: add statusMessages method
+- manifest: bump deps
+
+# 1.1.1
+- meta: ignore dist folder
+- RESTv1: add get/post debug logging
+- RESTv2: add get/post debug logging
+
+# 1.1.0
+- bump minor due to changes in v1.0.10
+
+# 1.0.10
+- RESTv2: add futures method 
+- RESTv2 fix: add symbol to currencies list entries
+
+# 1.0.9
+- RESTv2 refactor: add ability to fetch all funding trades to fundingTrades()
+
+# 1.0.8
+- RESTv2 refactor: use v2 conf endpoint for symbols()
+- manifest: moved babel deps to dev-deps
+- meta: add .babelrc
+
+# 1.0.7
+- RESTv2 fix: PositionHist model renamed to Position
+
+# 1.0.6
+- RESTv2: add conf method
+- RESTv2: add generateToken method
+
+# 1.0.5
+- RESTv2 fix: default req limit for tickersHistory, positionsHistory, positionsAudit
+- RESTv2 fix: typo in tickersHistory API URL generation
+- RESTv2 refactor: add currency option to walletsHistory
+
+# 1.0.4
+- RESTv2: add tickersHistory method
+- RESTv2: add positionsHistory method
+- RESTv2: add positionsAudit method
+- RESTv2: add walletsHistory method
+
+# 1.0.3
+- RESTv2: refactor internal callback handling
+
+# 1.0.2
+- RESTv2: add orderBook method
+- manifest: add babel build for browser compatibility
+- manifest: use versioned bfx packages
+
+# 1.0.1
+- RESTv2: add pool & explorer data to currencies()
+- manifest: rm bfx-api-node-core
+- meta: add jsdoc
+- meta: fill in README
+
+# 1.0.0
+- Initial version
+
