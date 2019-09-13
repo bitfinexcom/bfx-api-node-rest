@@ -14,7 +14,7 @@ const bhttp = new REST2({
   url: `http://localhost:${PORT}`
 })
 
-const testResBody = `["ente", "gans", "scholle"]`
+const testResBody = '["ente", "gans", "scholle"]'
 
 describe('rest2 api client: issue 80 - argumment length auth request', () => {
   it('errors if no payload defined', (done) => {
@@ -46,9 +46,9 @@ describe('rest2 api client: issue 80 - argumment length auth request', () => {
 
     server.listen(PORT, () => {
       bhttp._makeAuthRequest('/auth/r/orders', {}).then(res => {
-        assert.deepEqual(
+        assert.deepStrictEqual(
           res,
-          [ 'ente', 'gans', 'scholle' ]
+          ['ente', 'gans', 'scholle']
         )
 
         server.close()

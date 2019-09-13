@@ -34,8 +34,8 @@ describe('rest integration test', () => {
       bhttp.fundingbook('USD', opts, (err, data) => {
         if (err) throw err
         assert.ok(data)
-        assert.equal(data.bids.length, 0)
-        assert.equal(data.asks.length, 10)
+        assert.strictEqual(data.bids.length, 0)
+        assert.strictEqual(data.asks.length, 10)
         server.close()
         done()
       })
@@ -58,7 +58,7 @@ describe('rest integration test', () => {
         Buffer.from(req.headers['x-bfx-payload'], 'base64').toString('ascii')
       )
 
-      assert.equal(payload['post_only'], true)
+      assert.strictEqual(payload.post_only, true)
 
       res.end(testResBody)
     }).listen(PORT, () => {
@@ -86,8 +86,8 @@ describe('rest integration test', () => {
         Buffer.from(req.headers['x-bfx-payload'], 'base64').toString('ascii')
       )
 
-      assert.equal(payload['is_hidden'], true)
-      assert.equal(payload['post_only'], undefined)
+      assert.strictEqual(payload.is_hidden, true)
+      assert.strictEqual(payload.post_only, undefined)
 
       res.end(testResBody)
     }).listen(PORT, () => {
@@ -115,8 +115,8 @@ describe('rest integration test', () => {
         Buffer.from(req.headers['x-bfx-payload'], 'base64').toString('ascii')
       )
 
-      assert.equal(payload['is_hidden'], undefined)
-      assert.equal(payload['post_only'], undefined)
+      assert.strictEqual(payload.is_hidden, undefined)
+      assert.strictEqual(payload.post_only, undefined)
 
       res.end(testResBody)
     }).listen(PORT, () => {
