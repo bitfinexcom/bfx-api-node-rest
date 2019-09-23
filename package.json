@@ -44,15 +44,15 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "bfx-api-mock-srv": "^1.0.0",
+    "bfx-api-mock-srv": "git+http://github.com/bitfinexcom/bfx-api-mock-srv.git#semver:^1.0.0",
     "chai": "^4.2.0",
     "jsdoc-to-markdown": "^5.0.0",
     "mocha": "^6.2.0",
     "standard": "^14.1.0"
   },
   "dependencies": {
-    "bfx-api-node-models": "^1.0.12",
-    "bfx-api-node-util": "^1.0.2",
+    "bfx-api-node-models": "git+http://github.com/bitfinexcom/bfx-api-node-models.git#semver:^1.0.12",
+    "bfx-api-node-util": "git+http://github.com/bitfinexcom/bfx-api-node-util.git#semver:^1.0.2",
     "bluebird": "^3.5.5",
     "copy": "^0.3.2",
     "debug": "^4.1.1",
