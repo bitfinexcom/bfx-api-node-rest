@@ -4,9 +4,9 @@
     "standard"
   ],
   "rules": {
+    "max-len": 0,
     "jsx-quotes": ["error", "prefer-single"],
     "semi": [1, "never"],
-    "max-len": 0,
     "import/no-named-as-default": 0,
     "import/no-named-as-default-member": 0
   },
