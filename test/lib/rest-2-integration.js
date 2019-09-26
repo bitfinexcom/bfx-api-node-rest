@@ -41,9 +41,9 @@ const auditTestFundingOffer = (fo = {}) => {
   assert.strictEqual(fo.status, 'ACTIVE')
   assert.strictEqual(fo.rate, 0)
   assert.strictEqual(fo.period, 30)
-  assert.strictEqual(fo.notify, 0)
-  assert.strictEqual(fo.hidden, 0)
-  assert.strictEqual(fo.renew, 0)
+  assert.strictEqual(fo.notify, false)
+  assert.strictEqual(fo.hidden, false)
+  assert.strictEqual(fo.renew, false)
   assert.strictEqual(fo.rateReal, 0.00207328)
 }
 
@@ -60,11 +60,11 @@ const auditTestFundingLoan = (fl = {}) => {
   assert.strictEqual(fl.period, 7)
   assert.strictEqual(fl.mtsOpening, 1524786468000)
   assert.strictEqual(fl.mtsLastPayout, 1524786468000)
-  assert.strictEqual(fl.notify, 0)
-  assert.strictEqual(fl.hidden, 0)
-  assert.strictEqual(fl.renew, 0)
+  assert.strictEqual(fl.notify, false)
+  assert.strictEqual(fl.hidden, false)
+  assert.strictEqual(fl.renew, false)
   assert.strictEqual(fl.rateReal, 0.002)
-  assert.strictEqual(fl.noClose, 0)
+  assert.strictEqual(fl.noClose, false)
 }
 
 const auditTestFundingCredit = (fc = {}) => {
@@ -80,11 +80,11 @@ const auditTestFundingCredit = (fc = {}) => {
   assert.strictEqual(fc.period, 7)
   assert.strictEqual(fc.mtsOpening, 1524786468000)
   assert.strictEqual(fc.mtsLastPayout, null)
-  assert.strictEqual(fc.notify, 0)
-  assert.strictEqual(fc.hidden, 0)
-  assert.strictEqual(fc.renew, 0)
+  assert.strictEqual(fc.notify, false)
+  assert.strictEqual(fc.hidden, false)
+  assert.strictEqual(fc.renew, false)
   assert.strictEqual(fc.rateReal, 0.002)
-  assert.strictEqual(fc.noClose, 0)
+  assert.strictEqual(fc.noClose, false)
   assert.strictEqual(fc.positionPair, null)
 }
 
