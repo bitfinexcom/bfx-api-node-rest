@@ -1,6 +1,6 @@
 {
   "name": "bfx-api-node-rest",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Official Bitfinex REST v1 & v2 API interfaces",
   "engines": {
     "node": ">=7"
@@ -24,13 +24,15 @@
     "bitcoin",
     "BTC"
   ],
+  "author": "Bitfinex",
   "contributors": [
     "Ezequiel Wernicke <ezequiel.wernicke@bitfinex.com> (https://www.bitfinex.com)",
     "Josh Rossi <josh@bitfinex.com> (https://www.bitfinex.com)",
     "Cris Mihalache <cris.m@bitfinex.com> (https://www.bitfinex.com)",
     "Robert Kowalski <robert@bitfinex.com> (https://www.bitfinex.com)",
     "Simone Poggi <simone@bitfinex.com> (https://www.bitfinex.com)",
-    "Paolo Ardoino <paolo@bitfinex.com> (https://www.bitfinex.com)"
+    "Paolo Ardoino <paolo@bitfinex.com> (https://www.bitfinex.com)",
+    "Jacob Plaster <jacob.plaster@bitfinex.com> (https://www.bitfinex.com)"
   ],
   "license": "MIT",
   "bugs": {
@@ -38,22 +40,23 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.0.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "bfx-api-mock-srv": "git+https://github.com/bitfinexcom/bfx-api-mock-srv.git",
-    "chai": "^3.4.1",
+    "bfx-api-mock-srv": "git+http://github.com/bitfinexcom/bfx-api-mock-srv.git#semver:^1.0.0",
+    "chai": "^4.2.0",
     "jsdoc-to-markdown": "^5.0.0",
-    "mocha": "^6.1.4",
-    "standard": "^10.0.2"
+    "mocha": "^6.2.0",
+    "standard": "^14.1.0"
   },
   "dependencies": {
-    "bfx-api-node-models": "^1.0.0",
-    "bfx-api-node-util": "^1.0.0",
-    "bluebird": "^3.5.1",
+    "bfx-api-node-models": "git+http://github.com/bitfinexcom/bfx-api-node-models.git#semver:^1.0.12",
+    "bfx-api-node-util": "git+http://github.com/bitfinexcom/bfx-api-node-util.git#semver:^1.0.2",
+    "bluebird": "^3.5.5",
     "copy": "^0.3.2",
-    "debug": "^2.2.0",
-    "lodash": "^4.17.14",
+    "debug": "^4.1.1",
+    "lodash": "^4.17.15",
     "request": "^2.67.0",
     "request-promise": "^4.2.0"
   }

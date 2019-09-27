@@ -4,6 +4,7 @@
 /* eslint-disable no-unused-expressions */
 
 const assert = require('assert')
+const _isArray = require('lodash/isArray')
 const { expect } = require('chai')
 const DNS = require('dns')
 const RESTv1 = require('../../lib/rest1')
@@ -105,7 +106,7 @@ describe('REST v1', () => {
 
       bfx_rest.trades('BTCUSD', (error, data) => {
         assert(!error)
-        expect(data).is.an.array
+        assert(_isArray(data))
         expect(data.length).to.eql(100)
         expect(_.keys(data[0])).to.eql(['timestamp', 'tid', 'price', 'amount', 'exchange', 'type'])
         expect(
@@ -120,7 +121,7 @@ describe('REST v1', () => {
       bfx_rest.lends('USD', (error, data) => {
         assert(!error)
         expect(data).to.exist
-        expect(data).is.an.array
+        assert(_isArray(data))
         expect(data.length).to.eql(50)
         expect(_.keys(data[0])).to.eql(['rate', 'amount_lent', 'amount_used', 'timestamp'])
         expect(
