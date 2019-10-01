@@ -51,7 +51,7 @@
     "standard": "^14.1.0"
   },
   "dependencies": {
-    "bfx-api-node-models": "git+http://github.com/bitfinexcom/bfx-api-node-models.git#semver:^1.0.12",
+    "bfx-api-node-models": "git+http://github.com/bitfinexcom/bfx-api-node-models.git#semver:^1.1.0",
     "bfx-api-node-util": "git+http://github.com/bitfinexcom/bfx-api-node-util.git#semver:^1.0.2",
     "bluebird": "^3.5.5",
     "copy": "^0.3.2",
