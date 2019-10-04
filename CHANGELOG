@@ -1,3 +1,19 @@
+# 2.0.1
+- docs: create/update
+
+# 2.0.0
+- RESTv2: add submitOrder
+- RESTv2: add updateOrder
+- RESTv2: add cancelOrder
+- RESTv2: add claimPosition
+- RESTv2: add submitFundingOffer
+- RESTv2: add cancelFundingOffer
+- RESTv2: add closeFunding
+- RESTv2: add submitAutoFunding
+- RESTv2: add transfer
+- RESTv2: add getDepositAddress
+- RESTv2: add withdraw
+
 # 1.1.4
 - manifest: bump deps
 - meta: add github issue/pr templates

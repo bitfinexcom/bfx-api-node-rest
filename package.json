@@ -1,6 +1,6 @@
 {
   "name": "bfx-api-node-rest",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Official Bitfinex REST v1 & v2 API interfaces",
   "engines": {
     "node": ">=7"
@@ -10,8 +10,8 @@
     "lint": "standard",
     "test": "npm run lint && npm run unit",
     "unit": "NODE_ENV=test mocha -b --recursive",
-    "rest2_docs": "node_modules/jsdoc-to-markdown/bin/cli.js lib/rest2.js > doc/rest2.md",
-    "rest1_docs": "node_modules/jsdoc-to-markdown/bin/cli.js lib/rest1.js > doc/rest1.md",
+    "rest2_docs": "node_modules/jsdoc-to-markdown/bin/cli.js lib/rest2.js > docs/rest2.md",
+    "rest1_docs": "node_modules/jsdoc-to-markdown/bin/cli.js lib/rest1.js > docs/rest1.md",
     "docs": "npm run rest2_docs && npm run rest1_docs",
     "build": "babel -q ./index.js -d ./dist && babel -q ./lib -d ./dist/lib && copy package.json dist"
   },
