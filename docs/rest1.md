@@ -63,7 +63,7 @@ Instantiate a new REST v1 transport.
 <a name="RESTv1+ticker"></a>
 
 ### resTv1.ticker(symbol, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-public-ticker  
 
 | Param | Type | Default |
@@ -74,7 +74,7 @@ Instantiate a new REST v1 transport.
 <a name="RESTv1+today"></a>
 
 ### resTv1.today(symbol, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 
 | Param | Type |
 | --- | --- |
@@ -84,7 +84,7 @@ Instantiate a new REST v1 transport.
 <a name="RESTv1+stats"></a>
 
 ### resTv1.stats(symbol, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-public-stats  
 
 | Param | Type |
@@ -95,7 +95,7 @@ Instantiate a new REST v1 transport.
 <a name="RESTv1+fundingbook"></a>
 
 ### resTv1.fundingbook(currency, options, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-public-fundingbook  
 
 | Param | Type |
@@ -107,7 +107,7 @@ Instantiate a new REST v1 transport.
 <a name="RESTv1+orderbook"></a>
 
 ### resTv1.orderbook(symbol, options, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-public-orderbook  
 
 | Param | Type |
@@ -119,7 +119,7 @@ Instantiate a new REST v1 transport.
 <a name="RESTv1+trades"></a>
 
 ### resTv1.trades(symbol, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-public-trades  
 
 | Param | Type |
@@ -130,7 +130,7 @@ Instantiate a new REST v1 transport.
 <a name="RESTv1+lends"></a>
 
 ### resTv1.lends(symbol, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-public-lends  
 
 | Param | Type |
@@ -140,8 +140,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+get_symbols"></a>
 
-### resTv1.get_symbols(cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.get\_symbols(cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-public-symbols  
 
 | Param | Type |
@@ -150,8 +150,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+symbols_details"></a>
 
-### resTv1.symbols_details(cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.symbols\_details(cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-public-symbol-details  
 
 | Param | Type |
@@ -160,8 +160,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+new_order"></a>
 
-### resTv1.new_order(symbol, amount, price, exchange, side, type, is_hidden, postOnly, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.new\_order(symbol, amount, price, exchange, side, type, is_hidden, postOnly, cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-new-order  
 
 | Param | Type |
@@ -178,8 +178,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+multiple_new_orders"></a>
 
-### resTv1.multiple_new_orders(orders, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.multiple\_new\_orders(orders, cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-multiple-new-orders  
 
 | Param | Type |
@@ -189,8 +189,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+cancel_order"></a>
 
-### resTv1.cancel_order(order_id, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.cancel\_order(order_id, cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-cancel-order  
 
 | Param | Type |
@@ -200,8 +200,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+cancel_all_orders"></a>
 
-### resTv1.cancel_all_orders(cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.cancel\_all\_orders(cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-cancel-all-orders  
 
 | Param | Type |
@@ -210,8 +210,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+cancel_multiple_orders"></a>
 
-### resTv1.cancel_multiple_orders(order_ids, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.cancel\_multiple\_orders(order_ids, cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-cancel-multiple-orders  
 
 | Param | Type |
@@ -221,8 +221,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+replace_order"></a>
 
-### resTv1.replace_order(order_id, symbol, amount, price, exchange, side, type, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.replace\_order(order_id, symbol, amount, price, exchange, side, type, cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-replace-order  
 
 | Param | Type |
@@ -238,8 +238,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+order_status"></a>
 
-### resTv1.order_status(order_id, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.order\_status(order_id, cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-order-status  
 
 | Param | Type |
@@ -249,8 +249,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+active_orders"></a>
 
-### resTv1.active_orders(cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.active\_orders(cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-active-orders  
 
 | Param | Type |
@@ -259,8 +259,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+orders_history"></a>
 
-### resTv1.orders_history(cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.orders\_history(cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-orders-history  
 
 | Param | Type |
@@ -269,8 +269,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+active_positions"></a>
 
-### resTv1.active_positions(cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.active\_positions(cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-active-positions  
 
 | Param | Type |
@@ -279,8 +279,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+claim_position"></a>
 
-### resTv1.claim_position(position_id, amount, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.claim\_position(position_id, amount, cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-claim-position  
 
 | Param | Type |
@@ -291,8 +291,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+balance_history"></a>
 
-### resTv1.balance_history(currency, options, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.balance\_history(currency, options, cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-balance-history  
 
 | Param | Type |
@@ -304,7 +304,7 @@ Instantiate a new REST v1 transport.
 <a name="RESTv1+movements"></a>
 
 ### resTv1.movements(currency, options, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-deposit-withdrawal-history  
 
 | Param | Type |
@@ -315,8 +315,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+past_trades"></a>
 
-### resTv1.past_trades(symbol, options, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.past\_trades(symbol, options, cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-past-trades  
 
 | Param | Type |
@@ -327,8 +327,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+new_deposit"></a>
 
-### resTv1.new_deposit(currency, method, wallet_name, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.new\_deposit(currency, method, wallet_name, cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-deposit  
 
 | Param | Type |
@@ -340,8 +340,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+new_offer"></a>
 
-### resTv1.new_offer(currency, amount, rate, period, direction, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.new\_offer(currency, amount, rate, period, direction, cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-new-offer  
 
 | Param | Type |
@@ -355,8 +355,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+cancel_offer"></a>
 
-### resTv1.cancel_offer(offer_id, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.cancel\_offer(offer_id, cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-cancel-offer  
 
 | Param | Type |
@@ -366,8 +366,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+offer_status"></a>
 
-### resTv1.offer_status(offer_id, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.offer\_status(offer_id, cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-offer-status  
 
 | Param | Type |
@@ -377,8 +377,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+active_offers"></a>
 
-### resTv1.active_offers(cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.active\_offers(cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-offers  
 
 | Param | Type |
@@ -387,8 +387,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+active_credits"></a>
 
-### resTv1.active_credits(cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.active\_credits(cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-active-credits  
 
 | Param | Type |
@@ -397,8 +397,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+wallet_balances"></a>
 
-### resTv1.wallet_balances(cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.wallet\_balances(cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-wallet-balances  
 
 | Param | Type |
@@ -407,8 +407,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+taken_swaps"></a>
 
-### resTv1.taken_swaps(cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.taken\_swaps(cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-active-funding-used-in-a-margin-position  
 
 | Param | Type |
@@ -417,8 +417,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+total_taken_swaps"></a>
 
-### resTv1.total_taken_swaps(cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.total\_taken\_swaps(cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-total-taken-funds  
 
 | Param | Type |
@@ -427,8 +427,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+close_swap"></a>
 
-### resTv1.close_swap(swap_id, cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.close\_swap(swap_id, cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 
 | Param | Type |
 | --- | --- |
@@ -437,8 +437,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+account_infos"></a>
 
-### resTv1.account_infos(cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.account\_infos(cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-account-info  
 
 | Param | Type |
@@ -447,8 +447,8 @@ Instantiate a new REST v1 transport.
 
 <a name="RESTv1+margin_infos"></a>
 
-### resTv1.margin_infos(cb)
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+### resTv1.margin\_infos(cb)
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 **See**: https://docs.bitfinex.com/v1/reference#rest-auth-margin-information  
 
 | Param | Type |
@@ -460,7 +460,7 @@ Instantiate a new REST v1 transport.
 ### resTv1.withdraw(withdrawType, walletSelected, amount, address)
 POST /v1/withdraw
 
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -474,7 +474,7 @@ POST /v1/withdraw
 ### resTv1.transfer(amount, currency, walletFrom, walletTo)
 POST /v1/transfer
 
-**Kind**: instance method of <code>[RESTv1](#RESTv1)</code>  
+**Kind**: instance method of [<code>RESTv1</code>](#RESTv1)  
 
 | Param | Type | Description |
 | --- | --- | --- |
