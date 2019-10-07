@@ -1,3 +1,6 @@
+# 2.0.2
+- hotfix circular deps error
+
 # 2.0.1
 - docs: create/update
 
