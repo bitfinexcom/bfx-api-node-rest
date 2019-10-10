@@ -33,7 +33,9 @@ const rest = new RESTv2({ transform: true })
 
 Documentation at [https://docs.bitfinex.com/v2/reference](https://docs.bitfinex.com/v2/reference)
 
-See `doc/` for JSDoc generated documentation of available methods.
+[See `docs/`](/docs) for JSDoc generated documentation of available methods.
+* [RESTv2 API](/docs/rest2.md)
+* [RESTv1 API](/docs/rest1.md)
 
 ## Example
 
