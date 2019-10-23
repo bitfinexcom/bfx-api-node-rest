@@ -1,3 +1,6 @@
+# 2.0.4
+- v2/rest/withdraw invalid url hotfix
+
 # 2.0.3
 - manifest: switch to npm reg deps for bfx modules
 - readme: minor edit
