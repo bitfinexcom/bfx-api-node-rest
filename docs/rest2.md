@@ -7,6 +7,7 @@ Communicates with v2 of the Bitfinex HTTP API
 
 * [RESTv2](#RESTv2)
     * [new RESTv2(opts)](#new_RESTv2_new)
+    * [._takeResNotifyInfo()](#RESTv2+_takeResNotifyInfo)
     * [.orderBook(symbol, prec, cb)](#RESTv2+orderBook)
     * [.status(cb)](#RESTv2+status) ⇒ <code>Promise</code>
     * [.statusMessages(type, keys, cb)](#RESTv2+statusMessages) ⇒ <code>Promise</code>
@@ -81,12 +82,25 @@ Instantiate a new REST v2 transport.
 | Param | Type | Description |
 | --- | --- | --- |
 | opts | <code>Object</code> |  |
+| opts.affCode | <code>string</code> | affiliate code to be applied to all orders |
 | opts.apiKey | <code>string</code> |  |
 | opts.apiSecret | <code>string</code> |  |
 | opts.authToken | <code>string</code> | optional auth option |
 | opts.url | <code>string</code> | endpoint URL |
 | opts.transform | <code>boolean</code> | default false |
 | opts.agent | <code>Object</code> | optional node agent for connection (proxy) |
+
+<a name="RESTv2+_takeResNotifyInfo"></a>
+
+### resTv2.\_takeResNotifyInfo()
+Parses response into notification object and then
+extracts the info element
+
+**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
+
+| Param | Type |
+| --- | --- |
+| Notification.notify_info | <code>Object</code> | 
 
 <a name="RESTv2+orderBook"></a>
 
