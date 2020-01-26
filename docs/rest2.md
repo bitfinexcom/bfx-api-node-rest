@@ -891,9 +891,9 @@ Cancel existing funding offer
 ### resTv2.cancelAllFundingOffers(params, cb)
 Cancel all existing funding offers
 
-**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)
-**Returns**: <code>Promise</code> - p
-**See**: https://docs.bitfinex.com/reference#rest-auth-cancel-all-funding-offers
+**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
+**Returns**: <code>Promise</code> - p  
+**See**: https://docs.bitfinex.com/reference#rest-auth-cancel-all-funding-offers  
 
 | Param | Type | Description |
 | --- | --- | --- |
