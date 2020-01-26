@@ -67,6 +67,7 @@ Communicates with v2 of the Bitfinex HTTP API
     * [.claimPosition(id, cb)](#RESTv2+claimPosition)
     * [.submitFundingOffer(offer, cb)](#RESTv2+submitFundingOffer)
     * [.cancelFundingOffer(id, cb)](#RESTv2+cancelFundingOffer)
+    * [.cancelAllFundingOffers(params, cb)](#RESTv2+cancelAllFundingOffers)
     * [.closeFunding(params, cb)](#RESTv2+closeFunding)
     * [.submitAutoFunding(params, cb)](#RESTv2+submitAutoFunding)
     * [.transfer(cb)](#RESTv2+transfer) ⇒ <code>Promise</code>
@@ -878,11 +879,26 @@ Submit new funding offer
 ### resTv2.cancelFundingOffer(id, cb)
 Cancel existing funding offer
 
-**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
+**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>int</code> | offer id |
+| cb | <code>Method</code> |  |
+
+<a name="RESTv2+cancelAllFundingOffers"></a>
+
+### resTv2.cancelAllFundingOffers(params, cb)
+Cancel all existing funding offers
+
+**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)
+**Returns**: <code>Promise</code> - p
+**See**: https://docs.bitfinex.com/reference#rest-auth-cancel-all-funding-offers
+
+| Param | Type | Description |
+| --- | --- | --- |
+| params | <code>Object</code> |  |
+| params.currency | <code>string</code> | currency i.e USD |
 | cb | <code>Method</code> |  |
 
 <a name="RESTv2+closeFunding"></a>
@@ -890,7 +906,7 @@ Cancel existing funding offer
 ### resTv2.closeFunding(params, cb)
 Close funding
 
-**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
+**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)
 
 | Param | Type | Description |
 | --- | --- | --- |
