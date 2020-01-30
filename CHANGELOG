@@ -1,3 +1,5 @@
+# 3.0.1
+- RESTv2: add logins
 
 # 3.0.0
 - Hotfix: _takeResNotifyInfo return all notification info
@@ -61,7 +63,7 @@
 - bump minor due to changes in v1.0.10
 
 # 1.0.10
-- RESTv2: add futures method 
+- RESTv2: add futures method
 - RESTv2 fix: add symbol to currencies list entries
 
 # 1.0.9
@@ -106,4 +108,3 @@
 
 # 1.0.0
 - Initial version
-
