@@ -30,7 +30,7 @@ Communicates with v2 of the Bitfinex HTTP API
     * [.userInfo(cb)](#RESTv2+userInfo) ⇒ <code>Promise</code>
     * [.activeOrders(cb)](#RESTv2+activeOrders) ⇒ <code>Promise</code>
     * [.movements(ccy, start, end, limit, cb)](#RESTv2+movements) ⇒ <code>Promise</code>
-    * [.ledgers(ccy, start, end, limit, cb)](#RESTv2+ledgers) ⇒ <code>Promise</code>
+    * [.ledgers(filters, start, end, limit, cb)](#RESTv2+ledgers) ⇒ <code>Promise</code>
     * [.orderHistory(symbol, start, end, limit, cb)](#RESTv2+orderHistory) ⇒ <code>Promise</code>
     * [.orderTrades(symbol, start, end, limit, orderID, cb)](#RESTv2+orderTrades) ⇒ <code>Promise</code>
     * [.positions(cb)](#RESTv2+positions) ⇒ <code>Promise</code>
@@ -395,14 +395,14 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 <a name="RESTv2+ledgers"></a>
 
-### resTv2.ledgers(ccy, start, end, limit, cb) ⇒ <code>Promise</code>
+### resTv2.ledgers(filters, start, end, limit, cb) ⇒ <code>Promise</code>
 **Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
 **Returns**: <code>Promise</code> - p  
 **See**: https://docs.bitfinex.com/v2/reference#ledgers  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| ccy | <code>string</code> |  | i.e. ETH |
+| filters | <code>Object</code> |  | i.e. { ccy: 'ETH', category: 28 } |
 | start | <code>number</code> | <code></code> |  |
 | end | <code>number</code> |  |  |
 | limit | <code>number</code> | <code>25</code> | default 25 |
