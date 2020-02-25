@@ -1,3 +1,6 @@
+# 3.0.3
+- fix: refactor tests so they can run alongside all other HF/API library tests
+
 # 3.0.2
 - RESTv2: add filters to ledgers
 
