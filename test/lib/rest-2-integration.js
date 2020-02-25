@@ -89,6 +89,16 @@ const auditTestFundingCredit = (fc = {}) => {
 }
 
 describe('RESTv2 integration (mock server) tests', () => {
+  let srv = null
+
+  afterEach(async () => {
+    if (srv) {
+      await srv.close()
+    }
+
+    srv = null
+  })
+
   // [rest2MethodName, finalMockResponseKey, rest2MethodArgs]
   const methods = [
     // public
@@ -133,56 +143,50 @@ describe('RESTv2 integration (mock server) tests', () => {
     const args = m[2] || []
 
     it(`${name}: fetches expected data`, (done) => {
-      const srv = new MockRESTv2Server({ listen: true })
+      srv = new MockRESTv2Server({ listen: true })
       const r = getTestREST2()
       srv.setResponse(dataKey, [42])
 
       args.push((err, res) => {
         if (err) {
-          return srv.close().then(() => done(err)).catch(done)
+          return done(err)
         }
 
         assert.deepStrictEqual(res, [42])
-        srv.close().then(done).catch(done)
+        done()
       })
 
       r[name].apply(r, args)
     })
   })
 
-  it('correctly parses funding offer response', (done) => {
-    const srv = new MockRESTv2Server({ listen: true })
+  it('correctly parses funding offer response', async () => {
+    srv = new MockRESTv2Server({ listen: true })
     const r = getTestREST2({ transform: true })
 
     srv.setResponse('f_offers.fUSD', [getTestFundingOffer()])
 
-    r.fundingOffers('fUSD').then(([fo]) => {
-      auditTestFundingOffer(fo)
-      return srv.close()
-    }).then(done).catch(done)
+    const [fo] = await r.fundingOffers('fUSD')
+    auditTestFundingOffer(fo)
   })
 
-  it('correctly parses funding loan response', (done) => {
-    const srv = new MockRESTv2Server({ listen: true })
+  it('correctly parses funding loan response', async () => {
+    srv = new MockRESTv2Server({ listen: true })
     const r = getTestREST2({ transform: true })
 
     srv.setResponse('f_loans.fUSD', [getTestFundingLoan()])
 
-    r.fundingLoans('fUSD').then(([fo]) => {
-      auditTestFundingLoan(fo)
-      return srv.close()
-    }).then(done).catch(done)
+    const [fo] = await r.fundingLoans('fUSD')
+    auditTestFundingLoan(fo)
   })
 
-  it('correctly parses funding credit response', (done) => {
-    const srv = new MockRESTv2Server({ listen: true })
+  it('correctly parses funding credit response', async () => {
+    srv = new MockRESTv2Server({ listen: true })
     const r = getTestREST2({ transform: true })
 
     srv.setResponse('f_credits.fUSD', [getTestFundingCredit()])
 
-    r.fundingCredits('fUSD').then(([fc]) => {
-      auditTestFundingCredit(fc)
-      return srv.close()
-    }).then(done).catch(done)
+    const [fc] = await r.fundingCredits('fUSD')
+    auditTestFundingCredit(fc)
   })
 })

@@ -1,12 +1,12 @@
 /* eslint-env mocha */
 'use strict'
 
-const PORT = 1337
 
 const assert = require('assert')
 const http = require('http')
 const REST2 = require('../../lib/rest2')
 
+const PORT = 1338
 const bhttp = new REST2({
   apiKey: 'dummy',
   apiSecret: 'dummy',
@@ -25,24 +25,33 @@ const testResBody = `[1765.3,
   1726.3 ]`
 
 describe('rest2 api client', () => {
-  it('gets a response as JSON', (done) => {
-    const server = http.createServer((req, res) => {
-      res.writeHead(200, {
-        'Content-Type': 'text/plain'
+  let server = null
+
+  afterEach((done) => {
+    if (server) {
+      server.close(() => {
+        server = null
+        done()
       })
+    } else {
+      done()
+    }
+  })
+
+  it('gets a response as JSON', async () => {
+    server = http.createServer((req, res) => {
+      res.writeHead(200, { 'Content-Type': 'text/plain' })
       res.end(testResBody)
     })
 
-    server.listen(PORT, () => {
-      bhttp.ticker('tBTCUSD', (err, res) => {
-        assert.strictEqual(err, null)
-        assert.deepStrictEqual(
-          res,
-          JSON.parse(testResBody)
-        )
+    return new Promise((resolve) => {
+      server.listen(PORT, () => {
+        bhttp.ticker('tBTCUSD', (err, res) => {
+          assert.strictEqual(err, null)
+          assert.deepStrictEqual(res, JSON.parse(testResBody))
 
-        server.close()
-        done()
+          resolve()
+        })
       })
     })
   })
