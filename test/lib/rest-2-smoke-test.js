@@ -1,7 +1,6 @@
 /* eslint-env mocha */
 'use strict'
 
-
 const assert = require('assert')
 const http = require('http')
 const REST2 = require('../../lib/rest2')
