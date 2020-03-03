@@ -37,4 +37,38 @@ describe('RESTv2', () => {
       assert.ok(!rest.usesAgent(), 'usesAgent() indicates agent presence when none provided')
     })
   })
+
+  describe('trades', () => {
+    it('correctly builds query string', (done) => {
+      const rest = new RESTv2()
+
+      rest._makePublicRequest = (url) => {
+        assert.strictEqual(url, '/trades/tBTCUSD/hist?start=1&end=2&limit=3&sort=4')
+        done()
+      }
+
+      rest.trades('tBTCUSD', 1, 2, 3, 4)
+    })
+  })
+
+  describe('listener methods', () => {
+    const testMethod = (name, url, isPublicReq, ...params) => {
+      describe(name, () => {
+        it('calls correct endpoint', (done) => {
+          const rest = new RESTv2()
+          rest[isPublicReq ? '_makePublicRequest' : '_makeAuthRequest'] = (reqURL) => {
+            assert.strictEqual(reqURL, url)
+            done()
+          }
+          rest[name](...params)
+        })
+      })
+    }
+
+    // TODO: add rest...
+    testMethod('symbols', '/conf/pub:list:pair:exchange', true)
+    testMethod('futures', '/conf/pub:list:pair:futures', true)
+    testMethod('ledgers', '/auth/r/ledgers/hist', false)
+    testMethod('ledgers', '/auth/r/ledgers/USD/hist', false, 'USD')
+  })
 })
