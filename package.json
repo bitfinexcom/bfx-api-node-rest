@@ -14,7 +14,7 @@
   "scripts": {
     "lint": "standard",
     "test": "npm run lint && npm run unit",
-    "unit": "NODE_ENV=test mocha -b --recursive",
+    "unit": "NODE_ENV=test nyc --reporter=lcov --reporter=html mocha -b --recursive",
     "rest2_docs": "node_modules/jsdoc-to-markdown/bin/cli.js lib/rest2.js > docs/rest2.md",
     "rest1_docs": "node_modules/jsdoc-to-markdown/bin/cli.js lib/rest1.js > docs/rest1.md",
     "docs": "npm run rest2_docs && npm run rest1_docs",
@@ -54,6 +54,7 @@
     "husky": "^4.2.3",
     "jsdoc-to-markdown": "^5.0.0",
     "mocha": "^7.1.0",
+    "nyc": "^15.0.0",
     "socks-proxy-agent": "^5.0.0",
     "standard": "^14.1.0"
   },
