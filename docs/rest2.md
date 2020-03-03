@@ -1,3 +1,19 @@
+## Classes
+
+<dl>
+<dt><a href="#RESTv2">RESTv2</a></dt>
+<dd><p>Communicates with v2 of the Bitfinex HTTP API</p>
+</dd>
+</dl>
+
+## Functions
+
+<dl>
+<dt><a href="#_takeResNotify">_takeResNotify()</a></dt>
+<dd><p>Parses response into notification object</p>
+</dd>
+</dl>
+
 <a name="RESTv2"></a>
 
 ## RESTv2
@@ -7,7 +23,8 @@ Communicates with v2 of the Bitfinex HTTP API
 
 * [RESTv2](#RESTv2)
     * [new RESTv2(opts)](#new_RESTv2_new)
-    * [._takeResNotifyInfo()](#RESTv2+_takeResNotifyInfo)
+    * [.getURL()](#RESTv2+getURL) ⇒ <code>boolean</code>
+    * [.usesAgent()](#RESTv2+usesAgent) ⇒ <code>boolean</code>
     * [.orderBook(symbol, prec, cb)](#RESTv2+orderBook)
     * [.status(cb)](#RESTv2+status) ⇒ <code>Promise</code>
     * [.statusMessages(type, keys, cb)](#RESTv2+statusMessages) ⇒ <code>Promise</code>
@@ -53,7 +70,7 @@ Communicates with v2 of the Bitfinex HTTP API
     * ~~[.symbolDetails(cb)](#RESTv2+symbolDetails) ⇒ <code>Promise</code>~~
     * ~~[.accountInfo(cb)](#RESTv2+accountInfo) ⇒ <code>Promise</code>~~
     * ~~[.accountFees(cb)](#RESTv2+accountFees) ⇒ <code>Promise</code>~~
-    * ~~[.accountSummary(cb)](#RESTv2+accountSummary) ⇒ <code>Promise</code>~~
+    * [.accountSummary(cb)](#RESTv2+accountSummary) ⇒ <code>Promise</code>
     * ~~[.keyPermissions(cb)](#RESTv2+keyPermissions) ⇒ <code>Promise</code>~~
     * ~~[.balances(cb)](#RESTv2+balances) ⇒ <code>Promise</code>~~
     * ~~[.closePosition(params, cb)](#RESTv2+closePosition) ⇒ <code>Promise</code>~~
@@ -92,18 +109,16 @@ Instantiate a new REST v2 transport.
 | opts.transform | <code>boolean</code> | default false |
 | opts.agent | <code>Object</code> | optional node agent for connection (proxy) |
 
-<a name="RESTv2+_takeResNotifyInfo"></a>
+<a name="RESTv2+getURL"></a>
 
-### resTv2.\_takeResNotifyInfo()
-Parses response into notification object and then
-extracts the info element
-
+### resTv2.getURL() ⇒ <code>boolean</code>
 **Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
+**Returns**: <code>boolean</code> - url  
+<a name="RESTv2+usesAgent"></a>
 
-| Param | Type |
-| --- | --- |
-| Notification.notify_info | <code>Object</code> |
-
+### resTv2.usesAgent() ⇒ <code>boolean</code>
+**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
+**Returns**: <code>boolean</code> - usesAgent  
 <a name="RESTv2+orderBook"></a>
 
 ### resTv2.orderBook(symbol, prec, cb)
@@ -125,7 +140,7 @@ extracts the info element
 
 | Param | Type |
 | --- | --- |
-| cb | <code>Method</code> |
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+statusMessages"></a>
 
@@ -136,9 +151,9 @@ extracts the info element
 
 | Param | Type | Default |
 | --- | --- | --- |
-| type | <code>string</code> | <code>&quot;deriv&quot;</code> |
-| keys | <code>Array.&lt;string&gt;</code> |  |
-| cb | <code>Method</code> |  |
+| type | <code>string</code> | <code>&quot;deriv&quot;</code> | 
+| keys | <code>Array.&lt;string&gt;</code> |  | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+ticker"></a>
 
@@ -149,8 +164,8 @@ extracts the info element
 
 | Param | Type | Default |
 | --- | --- | --- |
-| symbol | <code>string</code> | <code>&quot;tBTCUSD&quot;</code> |
-| cb | <code>Method</code> |  |
+| symbol | <code>string</code> | <code>&quot;tBTCUSD&quot;</code> | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+tickers"></a>
 
@@ -161,8 +176,8 @@ extracts the info element
 
 | Param | Type |
 | --- | --- |
-| symbols | <code>Array.&lt;string&gt;</code> |
-| cb | <code>Method</code> |
+| symbols | <code>Array.&lt;string&gt;</code> | 
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+tickersHistory"></a>
 
@@ -173,11 +188,11 @@ extracts the info element
 
 | Param | Type | Default |
 | --- | --- | --- |
-| symbols | <code>Array.&lt;string&gt;</code> |  |
-| start | <code>number</code> |  |
-| end | <code>number</code> |  |
-| limit | <code>number</code> | <code>250</code> |
-| cb | <code>Method</code> |  |
+| symbols | <code>Array.&lt;string&gt;</code> |  | 
+| start | <code>number</code> |  | 
+| end | <code>number</code> |  | 
+| limit | <code>number</code> | <code>250</code> | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+stats"></a>
 
@@ -188,9 +203,9 @@ extracts the info element
 
 | Param | Type | Default |
 | --- | --- | --- |
-| key | <code>string</code> | <code>&quot;pos.size:1m:tBTCUSD:long&quot;</code> |
-| context | <code>string</code> | <code>&quot;hist&quot;</code> |
-| cb | <code>Method</code> |  |
+| key | <code>string</code> | <code>&quot;pos.size:1m:tBTCUSD:long&quot;</code> | 
+| context | <code>string</code> | <code>&quot;hist&quot;</code> | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+candles"></a>
 
@@ -216,8 +231,8 @@ Query configuration information
 
 | Param | Type |
 | --- | --- |
-| keys | <code>Array.&lt;string&gt;</code> |
-| cb | <code>Method</code> |
+| keys | <code>Array.&lt;string&gt;</code> | 
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+currencies"></a>
 
@@ -241,8 +256,8 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type | Default |
 | --- | --- | --- |
-| type | <code>string</code> | <code>&quot;price&quot;</code> |
-| cb | <code>Method</code> |  |
+| type | <code>string</code> | <code>&quot;price&quot;</code> | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+alertSet"></a>
 
@@ -253,9 +268,9 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type | Default |
 | --- | --- | --- |
-| type | <code>string</code> | <code>&quot;price&quot;</code> |
-| symbol | <code>string</code> | <code>&quot;tBTCUSD&quot;</code> |
-| price | <code>number</code> | <code>0</code> |
+| type | <code>string</code> | <code>&quot;price&quot;</code> | 
+| symbol | <code>string</code> | <code>&quot;tBTCUSD&quot;</code> | 
+| price | <code>number</code> | <code>0</code> | 
 
 <a name="RESTv2+alertDelete"></a>
 
@@ -266,8 +281,8 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type | Default |
 | --- | --- | --- |
-| symbol | <code>string</code> | <code>&quot;tBTCUSD&quot;</code> |
-| price | <code>number</code> | <code>0</code> |
+| symbol | <code>string</code> | <code>&quot;tBTCUSD&quot;</code> | 
+| price | <code>number</code> | <code>0</code> | 
 
 <a name="RESTv2+trades"></a>
 
@@ -317,6 +332,20 @@ Get a list of valid currencies ids, full names, pool and explorer
 | sort | <code>number</code> | <code></code> | if 1, sorts results oldest first |
 | cb | <code>Method</code> |  |  |
 
+<a name="RESTv2+logins"></a>
+
+### resTv2.logins(start, end, limit, cb) ⇒ <code>Promise</code>
+**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
+**Returns**: <code>Promise</code> - p  
+**See**: https://docs.bitfinex.com/v2/reference#rest-auth-logins-hist  
+
+| Param | Type | Default |
+| --- | --- | --- |
+| start | <code>number</code> | <code>0</code> | 
+| end | <code>number</code> |  | 
+| limit | <code>number</code> | <code>25</code> | 
+| cb | <code>Method</code> |  | 
+
 <a name="RESTv2+wallets"></a>
 
 ### resTv2.wallets(cb) ⇒ <code>Promise</code>
@@ -326,7 +355,7 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type |
 | --- | --- |
-| cb | <code>Method</code> |
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+walletsHistory"></a>
 
@@ -337,24 +366,9 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type | Default |
 | --- | --- | --- |
-| end | <code>number</code> |  |
-| currency | <code>string</code> | <code>null</code> |
-| cb | <code>Method</code> |  |
-
-<a name="RESTv2+logins"></a>
-
-### resTv2.logins(start, end, limit, cb) ⇒ <code>Promise</code>
-**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
-**Returns**: <code>Promise</code> - p  
-**See**: https://docs.bitfinex.com/v2/reference#rest-auth-logins-hist  
-
-| Param | Type | Default |
-| --- | --- | --- |
-| start | <code>number</code> |  |
-| end | <code>number</code> |  |
-| limit | <code>number</code> |  |
-| cb | <code>Method</code> |  |
-
+| end | <code>number</code> |  | 
+| currency | <code>string</code> | <code>null</code> | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+userInfo"></a>
 
@@ -365,7 +379,7 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type |
 | --- | --- |
-| cb | <code>Method</code> |
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+activeOrders"></a>
 
@@ -376,7 +390,7 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type |
 | --- | --- |
-| cb | <code>Method</code> |
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+movements"></a>
 
@@ -402,7 +416,7 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| filters | <code>Object</code> |  | i.e. { ccy: 'ETH', category: 28 } |
+| filters | <code>Object</code> \| <code>string</code> |  |  |
 | start | <code>number</code> | <code></code> |  |
 | end | <code>number</code> |  |  |
 | limit | <code>number</code> | <code>25</code> | default 25 |
@@ -432,12 +446,12 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type | Default |
 | --- | --- | --- |
-| symbol | <code>string</code> | <code>&quot;tBTCUSD&quot;</code> |
-| start | <code>number</code> | <code></code> |
-| end | <code>number</code> | <code></code> |
-| limit | <code>number</code> | <code></code> |
-| orderID | <code>number</code> |  |
-| cb | <code>Method</code> |  |
+| symbol | <code>string</code> | <code>&quot;tBTCUSD&quot;</code> | 
+| start | <code>number</code> | <code></code> | 
+| end | <code>number</code> | <code></code> | 
+| limit | <code>number</code> | <code></code> | 
+| orderID | <code>number</code> |  | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+positions"></a>
 
@@ -448,7 +462,7 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type |
 | --- | --- |
-| cb | <code>Method</code> |
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+positionsHistory"></a>
 
@@ -459,10 +473,10 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type | Default |
 | --- | --- | --- |
-| start | <code>Number</code> | <code>0</code> |
-| end | <code>Number</code> |  |
-| limit | <code>Number</code> | <code>50</code> |
-| cb | <code>Method</code> |  |
+| start | <code>Number</code> | <code>0</code> | 
+| end | <code>Number</code> |  | 
+| limit | <code>Number</code> | <code>50</code> | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+positionsAudit"></a>
 
@@ -473,11 +487,11 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type | Default |
 | --- | --- | --- |
-| id | <code>Array.&lt;Array&gt;</code> |  |
-| start | <code>Number</code> | <code>0</code> |
-| end | <code>Number</code> |  |
-| limit | <code>Number</code> | <code>250</code> |
-| cb | <code>Method</code> |  |
+| id | <code>Array.&lt;Array&gt;</code> |  | 
+| start | <code>Number</code> | <code>0</code> | 
+| end | <code>Number</code> |  | 
+| limit | <code>Number</code> | <code>250</code> | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+fundingOffers"></a>
 
@@ -488,8 +502,8 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type | Default |
 | --- | --- | --- |
-| symbol | <code>string</code> | <code>&quot;fUSD&quot;</code> |
-| cb | <code>Method</code> |  |
+| symbol | <code>string</code> | <code>&quot;fUSD&quot;</code> | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+fundingOfferHistory"></a>
 
@@ -515,8 +529,8 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type | Default |
 | --- | --- | --- |
-| symbol | <code>string</code> | <code>&quot;fUSD&quot;</code> |
-| cb | <code>Method</code> |  |
+| symbol | <code>string</code> | <code>&quot;fUSD&quot;</code> | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+fundingLoanHistory"></a>
 
@@ -542,8 +556,8 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type | Default |
 | --- | --- | --- |
-| symbol | <code>string</code> | <code>&quot;fUSD&quot;</code> |
-| cb | <code>Method</code> |  |
+| symbol | <code>string</code> | <code>&quot;fUSD&quot;</code> | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+fundingCreditHistory"></a>
 
@@ -584,8 +598,8 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type | Default |
 | --- | --- | --- |
-| key | <code>string</code> | <code>&quot;base&quot;</code> |
-| cb | <code>Method</code> |  |
+| key | <code>string</code> | <code>&quot;base&quot;</code> | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+fundingInfo"></a>
 
@@ -596,8 +610,8 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type | Default |
 | --- | --- | --- |
-| key | <code>string</code> | <code>&quot;fUSD&quot;</code> |
-| cb | <code>Method</code> |  |
+| key | <code>string</code> | <code>&quot;fUSD&quot;</code> | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+performance"></a>
 
@@ -608,7 +622,7 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type |
 | --- | --- |
-| cb | <code>Method</code> |
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+calcAvailableBalance"></a>
 
@@ -619,11 +633,11 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 | Param | Type | Default |
 | --- | --- | --- |
-| symbol | <code>string</code> | <code>&quot;tBTCUSD&quot;</code> |
-| dir | <code>string</code> |  |
-| rate | <code>number</code> |  |
-| type | <code>string</code> |  |
-| cb | <code>Method</code> |  |
+| symbol | <code>string</code> | <code>&quot;tBTCUSD&quot;</code> | 
+| dir | <code>string</code> |  | 
+| rate | <code>number</code> |  | 
+| type | <code>string</code> |  | 
+| cb | <code>Method</code> |  | 
 
 <a name="RESTv2+symbols"></a>
 
@@ -679,7 +693,7 @@ Get a list of valid symbol names and details
 
 | Param | Type |
 | --- | --- |
-| cb | <code>Method</code> |
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+accountInfo"></a>
 
@@ -694,7 +708,7 @@ Request information about your account
 
 | Param | Type |
 | --- | --- |
-| cb | <code>Method</code> |
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+accountFees"></a>
 
@@ -709,13 +723,11 @@ Request account withdrawl fees
 
 | Param | Type |
 | --- | --- |
-| cb | <code>Method</code> |
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+accountSummary"></a>
 
-### ~~resTv2.accountSummary(cb) ⇒ <code>Promise</code>~~
-***Deprecated***
-
+### resTv2.accountSummary(cb) ⇒ <code>Promise</code>
 Returns a 30-day summary of your trading volume and return on margin
 funding.
 
@@ -725,7 +737,7 @@ funding.
 
 | Param | Type |
 | --- | --- |
-| cb | <code>Method</code> |
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+keyPermissions"></a>
 
@@ -740,7 +752,7 @@ Fetch the permissions of the key being used to generate this request
 
 | Param | Type |
 | --- | --- |
-| cb | <code>Method</code> |
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+balances"></a>
 
@@ -755,7 +767,7 @@ Request your wallet balances
 
 | Param | Type |
 | --- | --- |
-| cb | <code>Method</code> |
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+closePosition"></a>
 
@@ -768,9 +780,9 @@ Request your wallet balances
 
 | Param | Type |
 | --- | --- |
-| params | <code>Object</code> |
-| params.position_id | <code>number</code> |
-| cb | <code>Method</code> |
+| params | <code>Object</code> | 
+| params.position_id | <code>number</code> | 
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+updateSettings"></a>
 
@@ -791,8 +803,8 @@ Request your wallet balances
 
 | Param | Type |
 | --- | --- |
-| keys | <code>Array.&lt;string&gt;</code> |
-| cb | <code>Method</code> |
+| keys | <code>Array.&lt;string&gt;</code> | 
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+getSettings"></a>
 
@@ -802,8 +814,8 @@ Request your wallet balances
 
 | Param | Type |
 | --- | --- |
-| keys | <code>Array.&lt;string&gt;</code> |
-| cb | <code>Method</code> |
+| keys | <code>Array.&lt;string&gt;</code> | 
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+exchangeRate"></a>
 
@@ -824,11 +836,11 @@ Request your wallet balances
 
 | Param | Type |
 | --- | --- |
-| opts | <code>Object</code> |
-| opts.ttl | <code>number</code> |
-| opts.scope | <code>string</code> |
-| opts.writePermission | <code>boolean</code> |
-| cb | <code>Method</code> |
+| opts | <code>Object</code> | 
+| opts.ttl | <code>number</code> | 
+| opts.scope | <code>string</code> | 
+| opts.writePermission | <code>boolean</code> | 
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+submitOrder"></a>
 
@@ -895,7 +907,7 @@ Submit new funding offer
 ### resTv2.cancelFundingOffer(id, cb)
 Cancel existing funding offer
 
-**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)
+**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -908,8 +920,6 @@ Cancel existing funding offer
 Cancel all existing funding offers
 
 **Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
-**Returns**: <code>Promise</code> - p  
-**See**: https://docs.bitfinex.com/reference#rest-auth-cancel-all-funding-offers  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -922,7 +932,7 @@ Cancel all existing funding offers
 ### resTv2.closeFunding(params, cb)
 Close funding
 
-**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)
+**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -991,3 +1001,15 @@ Execute a balance transfer between wallets
 | amount | <code>number</code> | amount to withdraw |
 | address | <code>string</code> | destination address |
 | cb | <code>\*</code> |  |
+
+<a name="_takeResNotify"></a>
+
+## \_takeResNotify()
+Parses response into notification object
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| Notification.notify_info | <code>Object</code> | 
+
