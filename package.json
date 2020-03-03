@@ -6,6 +6,11 @@
     "node": ">=7"
   },
   "main": "./dist/index.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  },
   "scripts": {
     "lint": "standard",
     "test": "npm run lint && npm run unit",
@@ -46,6 +51,7 @@
     "babel-preset-env": "^1.7.0",
     "bfx-api-mock-srv": "^1.0.4",
     "chai": "^4.2.0",
+    "husky": "^4.2.3",
     "jsdoc-to-markdown": "^5.0.0",
     "mocha": "^7.1.0",
     "socks-proxy-agent": "^5.0.0",
