@@ -1,3 +1,8 @@
+# 3.0.4
+- RESTv2: added usesAgent() method
+- RESTv2: added getURL() method
+- RESTv2: default connection url now exposed on RESTv2.url
+
 # 3.0.3
 - fix: refactor tests so they can run alongside all other HF/API library tests
 
