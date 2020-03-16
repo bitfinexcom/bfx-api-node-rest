@@ -1,5 +1,6 @@
 # 3.0.5
 - RESTv2: adds orderHistoryWithIds function
+- RESTv2: adds activeOrdersWithIds function
 
 # 3.0.4
 - RESTv2: added usesAgent() method
