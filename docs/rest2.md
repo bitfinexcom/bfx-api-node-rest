@@ -49,6 +49,7 @@ Communicates with v2 of the Bitfinex HTTP API
     * [.movements(ccy, start, end, limit, cb)](#RESTv2+movements) ⇒ <code>Promise</code>
     * [.ledgers(filters, start, end, limit, cb)](#RESTv2+ledgers) ⇒ <code>Promise</code>
     * [.orderHistory(symbol, start, end, limit, cb)](#RESTv2+orderHistory) ⇒ <code>Promise</code>
+    * [.orderHistoryWithIds(ids, cb)](#RESTv2+orderHistoryWithIds) ⇒ <code>Promise</code>
     * [.orderTrades(symbol, start, end, limit, orderID, cb)](#RESTv2+orderTrades) ⇒ <code>Promise</code>
     * [.positions(cb)](#RESTv2+positions) ⇒ <code>Promise</code>
     * [.positionsHistory(start, end, limit, cb)](#RESTv2+positionsHistory) ⇒ <code>Promise</code>
@@ -436,6 +437,18 @@ Get a list of valid currencies ids, full names, pool and explorer
 | end | <code>number</code> | <code></code> |  |
 | limit | <code>number</code> | <code></code> |  |
 | cb | <code>Method</code> |  |  |
+
+<a name="RESTv2+orderHistoryWithIds"></a>
+
+### resTv2.orderHistoryWithIds(ids, cb) ⇒ <code>Promise</code>
+**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
+**Returns**: <code>Promise</code> - p  
+**See**: https://docs.bitfinex.com/v2/reference#orders-history  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ids | <code>array</code> | order ids |
+| cb | <code>Method</code> |  |
 
 <a name="RESTv2+orderTrades"></a>
 
