@@ -1,3 +1,6 @@
+# 3.0.5
+- RESTv2: adds orderHistoryWithIds function
+
 # 3.0.4
 - RESTv2: added usesAgent() method
 - RESTv2: added getURL() method
