@@ -46,6 +46,7 @@ Communicates with v2 of the Bitfinex HTTP API
     * [.walletsHistory(end, currency, cb)](#RESTv2+walletsHistory) ⇒ <code>Promise</code>
     * [.userInfo(cb)](#RESTv2+userInfo) ⇒ <code>Promise</code>
     * [.activeOrders(cb)](#RESTv2+activeOrders) ⇒ <code>Promise</code>
+    * [.activeOrdersWithIds(ids, cb)](#RESTv2+activeOrdersWithIds) ⇒ <code>Promise</code>
     * [.movements(ccy, start, end, limit, cb)](#RESTv2+movements) ⇒ <code>Promise</code>
     * [.ledgers(filters, start, end, limit, cb)](#RESTv2+ledgers) ⇒ <code>Promise</code>
     * [.orderHistory(symbol, start, end, limit, cb)](#RESTv2+orderHistory) ⇒ <code>Promise</code>
@@ -386,12 +387,24 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 ### resTv2.activeOrders(cb) ⇒ <code>Promise</code>
 **Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
-**Returns**: <code>Promise</code> - p  
+**Returns**: <code>Promise</code> - p
 **See**: https://docs.bitfinex.com/v2/reference#rest-auth-orders  
 
 | Param | Type |
 | --- | --- |
-| cb | <code>Method</code> | 
+| cb | <code>Method</code> |
+
+<a name="RESTv2+activeOrdersWithIds"></a>
+
+### resTv2.activeOrdersWithIds(ids, cb) ⇒ <code>Promise</code>
+**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)
+**Returns**: <code>Promise</code> - p  
+**See**: https://docs.bitfinex.com/v2/reference#rest-auth-orders
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ids | <code>array</code> | order ids |
+| cb | <code>Method</code> |  |
 
 <a name="RESTv2+movements"></a>
 
