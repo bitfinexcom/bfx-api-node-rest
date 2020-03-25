@@ -84,6 +84,8 @@ Communicates with v2 of the Bitfinex HTTP API
     * [.submitOrder(order, cb)](#RESTv2+submitOrder)
     * [.updateOrder(order, cb)](#RESTv2+updateOrder)
     * [.cancelOrder(id, cb)](#RESTv2+cancelOrder)
+    * [.cancelOrderWithCid(cid, cb)](#RESTv2+cancelOrderWithCid)
+    * [.cancelOrderWithDate(cid, cb)](#RESTv2+cancelOrderWithDate)
     * [.claimPosition(id, cb)](#RESTv2+claimPosition)
     * [.submitFundingOffer(offer, cb)](#RESTv2+submitFundingOffer)
     * [.cancelFundingOffer(id, cb)](#RESTv2+cancelFundingOffer)
@@ -387,19 +389,19 @@ Get a list of valid currencies ids, full names, pool and explorer
 
 ### resTv2.activeOrders(cb) ⇒ <code>Promise</code>
 **Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
-**Returns**: <code>Promise</code> - p
+**Returns**: <code>Promise</code> - p  
 **See**: https://docs.bitfinex.com/v2/reference#rest-auth-orders  
 
 | Param | Type |
 | --- | --- |
-| cb | <code>Method</code> |
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+activeOrdersWithIds"></a>
 
 ### resTv2.activeOrdersWithIds(ids, cb) ⇒ <code>Promise</code>
-**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)
+**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
 **Returns**: <code>Promise</code> - p  
-**See**: https://docs.bitfinex.com/v2/reference#rest-auth-orders
+**See**: https://docs.bitfinex.com/v2/reference#rest-auth-orders  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -903,6 +905,30 @@ Cancel existing order
 | --- | --- | --- |
 | id | <code>int</code> | order id |
 | cb | <code>Method</code> |  |
+
+<a name="RESTv2+cancelOrderWithCid"></a>
+
+### resTv2.cancelOrderWithCid(cid, cb)
+Cancel existing order using the cID
+
+**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
+
+| Param | Type |
+| --- | --- |
+| cid | <code>int</code> | 
+| cb | <code>Method</code> | 
+
+<a name="RESTv2+cancelOrderWithDate"></a>
+
+### resTv2.cancelOrderWithDate(cid, cb)
+Cancel existing order using the cID date
+
+**Kind**: instance method of [<code>RESTv2</code>](#RESTv2)  
+
+| Param | Type |
+| --- | --- |
+| cid | <code>int</code> | 
+| cb | <code>Method</code> | 
 
 <a name="RESTv2+claimPosition"></a>
 
