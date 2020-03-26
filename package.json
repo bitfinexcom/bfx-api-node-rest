@@ -1,6 +1,6 @@
 {
   "name": "bfx-api-node-rest",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "description": "Official Bitfinex REST v1 & v2 API interfaces",
   "engines": {
     "node": ">=8.3.0"

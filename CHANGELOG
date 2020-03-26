@@ -1,3 +1,6 @@
+# 3.0.9
+- RESTv2: fix [cb] find/replace error to cb where appropriate
+
 # 3.0.8
 - RESTv2: fixes cancelOrderWithCid function
 - RESTv2: removes cancelOrderWithDate function
