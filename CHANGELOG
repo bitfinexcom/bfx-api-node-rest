@@ -1,3 +1,6 @@
+# 3.1.0
+- RESTv2: adds changeLogs function
+
 # 3.0.9
 - RESTv2: fix [cb] find/replace error to cb where appropriate
 
