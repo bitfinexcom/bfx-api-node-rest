@@ -123,6 +123,7 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['orderHistory', 'orders.sym.start.end.limit', ['sym', 'start', 'end', 'limit']],
     ['positions'],
     ['positionsHistory', 'positions_hist.start.end.limit', ['start', 'end', 'limit']],
+    ['positionsSnapshot', 'positions_snap.start.end.limit', ['start', 'end', 'limit']],
     ['positionsAudit', 'positions_audit.id.start.end.limit', ['id', 'start', 'end', 'limit']],
     ['fundingOffers', 'f_offers.sym', ['sym']],
     ['fundingOfferHistory', 'f_offer_hist.sym.start.end.limit', ['sym', 'start', 'end', 'limit']],
