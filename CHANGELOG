@@ -1,3 +1,6 @@
+# 3.0.11
+- RESTv2: add positionsSnaps function
+
 # 3.0.10
 - RESTv2: adds changeLogs function
 
