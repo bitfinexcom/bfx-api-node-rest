@@ -109,6 +109,7 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['stats', 'stats.key.context', ['key', 'context']],
     ['candles', 'candles.trade:30m:tBTCUSD.hist', [{ timeframe: '30m', symbol: 'tBTCUSD', section: 'hist' }]],
     ['statusMessages', 'status_messages.deriv.ALL', ['deriv', ['ALL']]],
+    ['publicPulseProfile', 'public_pulse_profile.nickname', ['nickname']],
 
     // private
     ['alertList', 'alerts.price', ['price']],

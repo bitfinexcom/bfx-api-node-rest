@@ -70,5 +70,6 @@ describe('RESTv2', () => {
     testMethod('futures', '/conf/pub:list:pair:futures', true)
     testMethod('ledgers', '/auth/r/ledgers/hist', false)
     testMethod('ledgers', '/auth/r/ledgers/USD/hist', false, 'USD')
+    testMethod('publicPulseProfile', '/pulse/profile/Bitfinex', true, 'Bitfinex')
   })
 })
