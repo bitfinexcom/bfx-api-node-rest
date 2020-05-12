@@ -1,3 +1,6 @@
+# 3.0.12
+- RESTv2: add public pulse profile endpoint
+
 # 3.0.11
 - RESTv2: add positionsSnaps function
 
