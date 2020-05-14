@@ -137,7 +137,8 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['fundingInfo', 'f_info.k', ['k']],
     ['derivsPositionCollateralSet', 'derivs_pos_col_set.symbol.collateral', ['symbol', 'collateral']],
     ['performance'],
-    ['calcAvailableBalance', 'calc.sym.dir.rate.type', ['sym', 'dir', 'rate', 'type']]
+    ['calcAvailableBalance', 'calc.sym.dir.rate.type', ['sym', 'dir', 'rate', 'type']],
+    ['addPulse', 'add_pulse.title.content', [{ title: 'title', content: 'content' }]]
   ]
 
   methods.forEach((m) => {
