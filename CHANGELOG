@@ -1,3 +1,6 @@
+# 3.0.14
+- RESTv2: add private deletePulse function
+
 # 3.0.13
 - RESTv2: add inactiveSymbols endpoint
 
