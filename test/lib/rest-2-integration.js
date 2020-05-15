@@ -138,7 +138,8 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['derivsPositionCollateralSet', 'derivs_pos_col_set.symbol.collateral', ['symbol', 'collateral']],
     ['performance'],
     ['calcAvailableBalance', 'calc.sym.dir.rate.type', ['sym', 'dir', 'rate', 'type']],
-    ['addPulse', 'add_pulse.title.content', [{ title: 'title', content: 'content' }]]
+    ['addPulse', 'add_pulse.title.content', [{ title: 'title', content: 'content' }]],
+    ['deletePulse', 'delete_pulse.pid', [{ pid: 'pid' }]]
   ]
 
   methods.forEach((m) => {
