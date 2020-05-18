@@ -1,5 +1,6 @@
 # 3.0.15
 - RESTv2: add publicPulseHistory function
+- RESTv2: add private pulseHistory function
 
 # 3.0.14
 - RESTv2: add private deletePulse function
