@@ -1,6 +1,6 @@
 {
   "name": "bfx-api-node-rest",
-  "version": "3.0.14",
+  "version": "3.0.15",
   "description": "Official Bitfinex REST v1 & v2 API interfaces",
   "engines": {
     "node": ">=8.3.0"
@@ -47,7 +47,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "bfx-api-mock-srv": "^1.0.9",
+    "bfx-api-mock-srv": "^1.0.10",
     "chai": "^4.2.0",
     "docdash": "^1.2.0",
     "eslint": "^6.8.0",
@@ -67,7 +67,7 @@
     "standard": "^14.1.0"
   },
   "dependencies": {
-    "bfx-api-node-models": "^1.2.7",
+    "bfx-api-node-models": "^1.2.8",
     "bfx-api-node-util": "^1.0.4",
     "bluebird": "^3.5.5",
     "copy": "^0.3.2",
