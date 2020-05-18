@@ -140,7 +140,8 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['performance'],
     ['calcAvailableBalance', 'calc.sym.dir.rate.type', ['sym', 'dir', 'rate', 'type']],
     ['addPulse', 'add_pulse.title.content', [{ title: 'title', content: 'content' }]],
-    ['deletePulse', 'delete_pulse.pid', [{ pid: 'pid' }]]
+    ['deletePulse', 'delete_pulse.pid', [{ pid: 'pid' }]],
+    ['pulseHistory', 'pulse_hist.1', [{ isPublic: 1 }]]
   ]
 
   methods.forEach((m) => {
