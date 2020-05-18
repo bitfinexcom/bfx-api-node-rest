@@ -74,5 +74,6 @@ describe('RESTv2', () => {
     testMethod('publicPulseProfile', '/pulse/profile/Bitfinex', true, 'Bitfinex')
     testMethod('addPulse', '/auth/w/pulse/add', false)
     testMethod('deletePulse', '/auth/w/pulse/del', false)
+    testMethod('publicPulseHistory', '/pulse/hist?limit=2&end=1589559090651', true, 2, 1589559090651)
   })
 })
