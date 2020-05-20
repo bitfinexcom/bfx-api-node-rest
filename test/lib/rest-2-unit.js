@@ -76,5 +76,7 @@ describe('RESTv2', () => {
     testMethod('deletePulse', '/auth/w/pulse/del', false)
     testMethod('publicPulseHistory', '/pulse/hist?limit=2&end=1589559090651', true, 2, 1589559090651)
     testMethod('pulseHistory', '/auth/r/pulse/hist', false)
+    testMethod('generateInvoice', '/auth/w/deposit/invoice', false)
+    testMethod('marketAveragePrice', '/calc/trade/avg?symbol=fUSD&amount=100', true, { symbol: 'fUSD', amount: 100 })
   })
 })

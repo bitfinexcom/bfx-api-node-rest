@@ -111,6 +111,7 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['statusMessages', 'status_messages.deriv.ALL', ['deriv', ['ALL']]],
     ['publicPulseProfile', 'public_pulse_profile.nickname', ['nickname']],
     ['publicPulseHistory', 'public_pulse_hist', ['limit', 'end']],
+    ['marketAveragePrice', 'market_average_price.fUSD.100', [{ symbol: 'fUSD', amount: 100 }]],
 
     // private
     ['alertList', 'alerts.price', ['price']],
@@ -141,7 +142,8 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['calcAvailableBalance', 'calc.sym.dir.rate.type', ['sym', 'dir', 'rate', 'type']],
     ['addPulse', 'add_pulse.title.content', [{ title: 'title', content: 'content' }]],
     ['deletePulse', 'delete_pulse.pid', [{ pid: 'pid' }]],
-    ['pulseHistory', 'pulse_hist.1', [{ isPublic: 1 }]]
+    ['pulseHistory', 'pulse_hist.1', [{ isPublic: 1 }]],
+    ['generateInvoice', 'generate_invoice.LNX.wallet.amount', [{ currency: 'LNX', wallet: 'wallet', amount: 'amount' }]]
   ]
 
   methods.forEach((m) => {
