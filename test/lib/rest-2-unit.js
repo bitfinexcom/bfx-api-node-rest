@@ -67,6 +67,7 @@ describe('RESTv2', () => {
 
     // TODO: add rest...
     testMethod('symbols', '/conf/pub:list:pair:exchange', true)
+    testMethod('inactiveSymbols', '/conf/pub:list:pair:exchange:inactive', true)
     testMethod('futures', '/conf/pub:list:pair:futures', true)
     testMethod('ledgers', '/auth/r/ledgers/hist', false)
     testMethod('ledgers', '/auth/r/ledgers/USD/hist', false, 'USD')
