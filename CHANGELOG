@@ -1,3 +1,6 @@
+# 3.0.13
+- RESTv2: add inactiveSymbols endpoint
+
 # 3.0.12
 - RESTv2: add public pulse profile endpoint
 
