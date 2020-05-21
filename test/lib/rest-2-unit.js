@@ -78,5 +78,6 @@ describe('RESTv2', () => {
     testMethod('pulseHistory', '/auth/r/pulse/hist', false)
     testMethod('generateInvoice', '/auth/w/deposit/invoice', false)
     testMethod('marketAveragePrice', '/calc/trade/avg?symbol=fUSD&amount=100', true, { symbol: 'fUSD', amount: 100 })
+    testMethod('keepFunding', '/auth/w/funding/keep', false, { type: 'type', id: 'id' })
   })
 })
