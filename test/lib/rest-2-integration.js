@@ -143,7 +143,8 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['addPulse', 'add_pulse.title.content', [{ title: 'title', content: 'content' }]],
     ['deletePulse', 'delete_pulse.pid', [{ pid: 'pid' }]],
     ['pulseHistory', 'pulse_hist.1', [{ isPublic: 1 }]],
-    ['generateInvoice', 'generate_invoice.LNX.wallet.amount', [{ currency: 'LNX', wallet: 'wallet', amount: 'amount' }]]
+    ['generateInvoice', 'generate_invoice.LNX.wallet.amount', [{ currency: 'LNX', wallet: 'wallet', amount: 'amount' }]],
+    ['keepFunding', 'keep_funding.type.id', [{ type: 'type', id: 'id' }]]
   ]
 
   methods.forEach((m) => {
