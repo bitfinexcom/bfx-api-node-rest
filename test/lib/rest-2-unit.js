@@ -80,5 +80,6 @@ describe('RESTv2', () => {
     testMethod('marketAveragePrice', '/calc/trade/avg?symbol=fUSD&amount=100', true, { symbol: 'fUSD', amount: 100 })
     testMethod('keepFunding', '/auth/w/funding/keep', false, { type: 'type', id: 'id' })
     testMethod('cancelOrderMulti', '/auth/w/order/cancel/multi', false, { id: [123] })
+    testMethod('orderMultiOp', '/auth/w/order/multi', false, { ops: ['oc_multi', { id: [1] }] })
   })
 })
