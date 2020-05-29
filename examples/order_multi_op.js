@@ -3,7 +3,7 @@
 process.env.DEBUG = '*'
 
 const { Order } = require('bfx-api-node-models')
-const debug = require('debug')('bfx:api:rest:examples:candles')
+const debug = require('debug')('bfx:api:rest:examples:ordermultiop')
 const { RESTv2 } = require('../')
 
 /**
