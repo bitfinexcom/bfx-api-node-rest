@@ -1,3 +1,10 @@
+# 3.0.16
+- RESTv2: add marketAveragePrice function
+- RESTv2: add generateInvoice function
+- RESTv2: add keepFunding function
+- RESTv2: add cancelOrderMulti function
+- RESTv2: add orderMultiOp function
+
 # 3.0.15
 - RESTv2: add publicPulseHistory function
 - RESTv2: add private pulseHistory function
