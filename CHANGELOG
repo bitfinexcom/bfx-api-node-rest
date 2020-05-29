@@ -4,6 +4,9 @@
 - RESTv2: add keepFunding function
 - RESTv2: add cancelOrderMulti function
 - RESTv2: add orderMultiOp function
+- RESTv2: add submitOrderMulti function
+- RESTv2: add updateOrderMulti function
+- RESTv2: add cancelOrders function
 
 # 3.0.15
 - RESTv2: add publicPulseHistory function
