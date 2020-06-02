@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>Global - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,88 +34,527 @@
 
 <div id="main">
     
+    <h1 class="page-title">Global</h1>
+    
 
     
 
 
 
+
+<section>
+
+<header>
+    
+        <h2>
+        
+        </h2>
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+<dl class="details">
+
     
 
-
-    <section class="package">
-        <h3> </h3>		
-    </section>
-
-
-
-
-
-
-
-
+    
 
     
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
 
 
-    <section class="readme usertext">
-        <article><h1>Bitfinex RESTv1 &amp; RESTv2 APIs for Node.JS</h1>
-<p>A Node.JS reference implementation of the Bitfinex REST APIs</p>
-<p>To use, construct a new instance of either the <code>RESTv1</code> or <code>RESTv2</code> classes. All API methods return promises and accept a callback as the last parameter; the callback will be called with <code>(error, response)</code>.</p>
-<p>To minimize the data sent over the network the transmitted data is structured in arrays. In order to reconstruct key / value pairs, set <code>opts.transform</code> to <code>true</code> when creating an interface.</p>
-<h3>Features</h3>
-<ul>
-<li>Official implementation</li>
-<li>REST v2 API</li>
-<li>REST v1 API</li>
-</ul>
-<h2>Installation</h2>
-<pre class="prettyprint source lang-bash"><code>  npm i --save bfx-api-node-rest
-</code></pre>
-<h3>Quickstart</h3>
-<pre class="prettyprint source lang-js"><code>const { RESTv2 } = require('bfx-api-node-rest')
-const rest = new RESTv2({ transform: true })
-
-// do something with the RESTv2 instance
-</code></pre>
-<h3>Docs</h3>
-<p>Documentation at <a href="https://docs.bitfinex.com/v2/reference">https://docs.bitfinex.com/v2/reference</a></p>
-<h2>Example</h2>
-<pre class="prettyprint source lang-js"><code>const { RESTv2 } = require('bfx-api-node-rest')
-
-const rest = new RESTv2({
-  apiKey: '...',
-  apiSecret: '...',
-  authToken: '...', // optional, has priority over API key/secret
-  url: '...',       // optional
-  transform: true,  // to have full models returned by all methods
-  agent: null,      // optional proxy agent
-})
-
-rest.candles({
-  timeframe: '1m',
-  symbol: 'tBTCUSD',
-  query: {
-    start: Date.now() - (24 * 60 * 60 * 1000),
-    end: Date.now(),
-    limit: 1000,
-  }
-}).then((candles) => {
-  // ...
-}).catch((err) => {
-  console.log(err)
-})
-</code></pre>
-<h3>NOTE: v1 REST and WS clients</h3>
-<p>Both v1 client classes &amp; server APIs have been deprecated, and will be removed. In the meantime, some methods available via <code>RESTv1</code> have been exposed on <code>RESTv2</code> to prevent future migration issues. Although the underlying implementation of these methods is likely to change once they are fully ported to v2, the signatures should remain the same.</p>
-<h2>FAQ</h2>
-<h3>nonce too small</h3>
-<p>I make multiple parallel request and I receive an error that the nonce is too small. What does it mean?</p>
-<p>Nonces are used to guard against replay attacks. When multiple HTTP requests arrive at the API with the wrong nonce, e.g. because of an async timing issue, the API will reject the request.</p>
-<p>If you need to go parallel, you have to use multiple API keys right now.</p></article>
-    </section>
 
 
+            
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+<h4 class="name" id="ClientOrderIdPayload">ClientOrderIdPayload</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="rest2.js.html">rest2.js</a>, <a href="rest2.js.html#line1464">line 1464</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>0</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>client order ID</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>client order ID date i.e. '2020-05-28'</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="MultiOrderOp">MultiOrderOp</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="rest2.js.html">rest2.js</a>, <a href="rest2.js.html#line1415">line 1415</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>0</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>operation, i.e. 'oc', 'on', 'oc_multi', 'ou'</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#MultiOrderOpPayload">MultiOrderOpPayload</a></span>
+|
+
+<span class="param-type">Order</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>payload, i.e. { id: [1, 2] }</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="MultiOrderOpPayload">MultiOrderOpPayload</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="rest2.js.html">rest2.js</a>, <a href="rest2.js.html#line1410">line 1410</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+|
+
+<span class="param-type">Array.&lt;number></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>array of order IDs or single order ID</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+    
+
+    
+</article>
+
+</section>
 
 
 
