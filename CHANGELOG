@@ -1,3 +1,8 @@
+# 3.0.17
+- meta: bump deps
+- meta: normalize eslint config
+- refactor: improve doclets
+
 # 3.0.16
 - RESTv2: add marketAveragePrice function
 - RESTv2: add generateInvoice function
