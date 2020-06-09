@@ -52,11 +52,11 @@ describe('RESTv2', () => {
   })
 
   describe('listener methods', () => {
-    const testMethod = (name, url, isPublicReq, ...params) => {
+    const testMethod = (name, url, method, ...params) => {
       describe(name, () => {
         it('calls correct endpoint', (done) => {
           const rest = new RESTv2()
-          rest[isPublicReq ? '_makePublicRequest' : '_makeAuthRequest'] = (reqURL) => {
+          rest[method] = (reqURL) => {
             assert.strictEqual(reqURL, url)
             done()
           }
@@ -66,20 +66,20 @@ describe('RESTv2', () => {
     }
 
     // TODO: add rest...
-    testMethod('symbols', '/conf/pub:list:pair:exchange', true)
-    testMethod('inactiveSymbols', '/conf/pub:list:pair:exchange:inactive', true)
-    testMethod('futures', '/conf/pub:list:pair:futures', true)
-    testMethod('ledgers', '/auth/r/ledgers/hist', false)
-    testMethod('ledgers', '/auth/r/ledgers/USD/hist', false, 'USD')
-    testMethod('publicPulseProfile', '/pulse/profile/Bitfinex', true, 'Bitfinex')
-    testMethod('addPulse', '/auth/w/pulse/add', false)
-    testMethod('deletePulse', '/auth/w/pulse/del', false)
-    testMethod('publicPulseHistory', '/pulse/hist?limit=2&end=1589559090651', true, 2, 1589559090651)
-    testMethod('pulseHistory', '/auth/r/pulse/hist', false)
-    testMethod('generateInvoice', '/auth/w/deposit/invoice', false)
-    testMethod('marketAveragePrice', '/calc/trade/avg?symbol=fUSD&amount=100', true, { symbol: 'fUSD', amount: 100 })
-    testMethod('keepFunding', '/auth/w/funding/keep', false, { type: 'type', id: 'id' })
-    testMethod('cancelOrderMulti', '/auth/w/order/cancel/multi', false, { id: [123] })
-    testMethod('orderMultiOp', '/auth/w/order/multi', false, [['oc_multi', { id: [1] }]])
+    testMethod('symbols', '/conf/pub:list:pair:exchange', '_makePublicRequest')
+    testMethod('inactiveSymbols', '/conf/pub:list:pair:exchange:inactive', '_makePublicRequest')
+    testMethod('futures', '/conf/pub:list:pair:futures', '_makePublicRequest')
+    testMethod('ledgers', '/auth/r/ledgers/hist', '_makeAuthRequest')
+    testMethod('ledgers', '/auth/r/ledgers/USD/hist', '_makeAuthRequest', 'USD')
+    testMethod('publicPulseProfile', '/pulse/profile/Bitfinex', '_makePublicRequest', 'Bitfinex')
+    testMethod('addPulse', '/auth/w/pulse/add', '_makeAuthRequest')
+    testMethod('deletePulse', '/auth/w/pulse/del', '_makeAuthRequest')
+    testMethod('publicPulseHistory', '/pulse/hist?limit=2&end=1589559090651', '_makePublicRequest', 2, 1589559090651)
+    testMethod('pulseHistory', '/auth/r/pulse/hist', '_makeAuthRequest')
+    testMethod('generateInvoice', '/auth/w/deposit/invoice', '_makeAuthRequest')
+    testMethod('marketAveragePrice', '/calc/trade/avg?symbol=fUSD&amount=100', '_makePublicPostRequest', { symbol: 'fUSD', amount: 100 })
+    testMethod('keepFunding', '/auth/w/funding/keep', '_makeAuthRequest', { type: 'type', id: 'id' })
+    testMethod('cancelOrderMulti', '/auth/w/order/cancel/multi', '_makeAuthRequest', { id: [123] })
+    testMethod('orderMultiOp', '/auth/w/order/multi', '_makeAuthRequest', [['oc_multi', { id: [1] }]])
   })
 })
