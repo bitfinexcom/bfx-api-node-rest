@@ -1,3 +1,6 @@
+# 3.0.18
+- RESTv2: add walletFx to currencies function
+
 # 3.0.17
 - RESTv2: marketAveragePrice test fixes
 
