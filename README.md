@@ -34,9 +34,10 @@ const rest = new RESTv2({ transform: true })
 
 ### Docs
 
-Documentation at [https://docs.bitfinex.com/v2/reference](https://docs.bitfinex.com/v2/reference)
+Documentation at [docs.bitfinex.com/v2/reference](https://docs.bitfinex.com/v2/reference)
 
-[See `docs/`](/docs) for JSDoc generated documentation of available methods.
+API documentation can be found in [`docs/reference.md`](docs/reference.md), and
+examples in the [`examples`](examples) folder.
 
 ## Example
 
