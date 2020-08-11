@@ -1,3 +1,6 @@
+# 3.0.19
+- RESTv2: add _cust_ip to generateToken function
+
 # 3.0.18
 - RESTv2: add walletFx to currencies function
 
