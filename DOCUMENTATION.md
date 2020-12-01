@@ -41,6 +41,8 @@ const rest = new RESTv2({
   apiSecret: '...',
   authToken: '...', // optional, has priority over API key/secret
   url: '...',       // optional
+  urlV1: '...',     // optional, useful for methods like symbolDetails
+                    // since api/v1 doesn't support endpoint api-pub.bitfinex.com
   transform: true,  // to have full models returned by all methods
   agent: null,      // optional proxy agent
 })
