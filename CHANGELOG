@@ -1,3 +1,6 @@
+# 3.0.20
+- RESTv2: addes option for api/v1 url in constructor
+
 # 3.0.19
 - RESTv2: add _cust_ip to generateToken function
 - Remove Babel

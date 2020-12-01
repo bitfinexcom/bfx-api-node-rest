@@ -1,6 +1,6 @@
 {
   "name": "bfx-api-node-rest",
-  "version": "3.0.19",
+  "version": "3.0.20",
   "description": "Official Bitfinex REST v1 & v2 API interfaces",
   "engines": {
     "node": ">=8.3.0"
@@ -34,7 +34,8 @@
     "Robert Kowalski <robert@bitfinex.com> (https://www.bitfinex.com)",
     "Simone Poggi <simone@bitfinex.com> (https://www.bitfinex.com)",
     "Paolo Ardoino <paolo@bitfinex.com> (https://www.bitfinex.com)",
-    "Jacob Plaster <jacob.plaster@bitfinex.com> (https://www.bitfinex.com)"
+    "Jacob Plaster <jacob.plaster@bitfinex.com> (https://www.bitfinex.com)",
+    "Vigan Abdurrahmani <vigan.abdurrahmani@bitfinex.com> (https://www.bitfinex.com)"
   ],
   "license": "MIT",
   "bugs": {
