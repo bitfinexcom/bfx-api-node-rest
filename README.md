@@ -67,14 +67,6 @@ rest.candles({
 })
 ```
 
-### NOTE: v1 REST and WS clients
-
-Both v1 client classes & server APIs have been deprecated, and will be removed.
-In the meantime, some methods available via `RESTv1` have been exposed on
-`RESTv2` to prevent future migration issues. Although the underlying
-implementation of these methods is likely to change once they are fully ported
-to v2, the signatures should remain the same.
-
 ## FAQ
 
 ### nonce too small
