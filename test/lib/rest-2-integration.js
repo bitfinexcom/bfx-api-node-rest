@@ -142,7 +142,6 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['performance'],
     ['calcAvailableBalance', 'calc.sym.dir.rate.type', ['sym', 'dir', 'rate', 'type']],
     ['addPulse', 'add_pulse.title.content', [{ title: 'title', content: 'content' }]],
-    // ['addPulseComment', 'add_pulse_comment.parent.title.content', [{ parent: 'parent', title: 'title', content: 'content' }]],
     ['deletePulse', 'delete_pulse.pid', [{ pid: 'pid' }]],
     ['pulseHistory', 'pulse_hist.1', [{ isPublic: 1 }]],
     ['generateInvoice', 'generate_invoice.LNX.wallet.amount', [{ currency: 'LNX', wallet: 'wallet', amount: 'amount' }]],
