@@ -1,4 +1,4 @@
-#3.0.20
+#3.1.0
 - RESTv2: add addPulseComment function
 - RESTv2: add fetchPulseComments function
 
