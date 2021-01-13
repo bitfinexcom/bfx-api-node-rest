@@ -1,4 +1,17 @@
-#3.1.0
+# 4.0.0
+- RESTv2: removed RESTv1 usage inside RESTv2
+- RESTv2: removed _rest1
+- RESTv2: removed _makePublicLegacyRequest
+- RESTv2: removed _makeAuthLegacyRequest
+- RESTv2: removed accountInfo, accountSummary already exists in v2 integration
+- RESTv2: removed balances, wallets already exists in v2 integration
+- RESTv2: adjusted accountSummary to use official documented v2 endpoint, response format changed
+- RESTv2: upgraded symbolDetails to v2, response format changed
+- RESTv2: upgraded accountFees to v2, response format changed
+- RESTv2: upgraded keyPermissions to v2, response format changed
+- RESTv2: upgraded closePosition to v2, response format changed
+
+# 3.1.0
 - RESTv2: add addPulseComment function
 - RESTv2: add fetchPulseComments function
 

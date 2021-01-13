@@ -4,6 +4,7 @@
 const assert = require('assert')
 const RESTv2 = require('../../lib/rest2')
 const { MockRESTv2Server } = require('bfx-api-mock-srv')
+const { Order } = require('bfx-api-node-models')
 
 const getTestREST2 = (args = {}) => {
   return new RESTv2({
@@ -147,7 +148,11 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['generateInvoice', 'generate_invoice.LNX.wallet.amount', [{ currency: 'LNX', wallet: 'wallet', amount: 'amount' }]],
     ['keepFunding', 'keep_funding.type.id', [{ type: 'type', id: 'id' }]],
     ['cancelOrderMulti', 'cancel_order_multi.123', [{ id: [123] }]],
-    ['orderMultiOp', 'order_multi_op', [[[]]]]
+    ['orderMultiOp', 'order_multi_op', [[[]]]],
+    ['accountSummary', 'account_summary', []],
+    ['symbolDetails', 'info_pairs', []],
+    ['submitOrder', 'order_submit', [new Order({ type: 'EXCHANGE_MARKET', symbol: 'tBTCUST', price: 17832, amount: 0.3 })]],
+    ['keyPermissions', 'auth_permissions', []]
   ]
 
   methods.forEach((m) => {
@@ -201,5 +206,122 @@ describe('RESTv2 integration (mock server) tests', () => {
 
     const [fc] = await r.fundingCredits('fUSD')
     auditTestFundingCredit(fc)
+  })
+
+  it('correctly parses accountSummary response', async () => {
+    srv = new MockRESTv2Server({ listen: true })
+    const r = getTestREST2({ transform: true })
+
+    srv.setResponse('account_summary', [
+      null, null, null, null,
+      [
+        [0.001, 0.001, 0.001, null, null, -0.0002],
+        [0.002, 0.0021, 0.0022, null, null, 0.00075]
+      ],
+      null, null, null, null,
+      { leo_lev: 0, leo_amount_avg: 0.002 }
+    ])
+
+    const summary = await r.accountSummary()
+    assert.strictEqual(summary.makerFee, 0.001)
+    assert.strictEqual(summary.derivMakerRebate, -0.0002)
+    assert.strictEqual(summary.takerFeeToCrypto, 0.002)
+    assert.strictEqual(summary.takerFeeToStable, 0.0021)
+    assert.strictEqual(summary.takerFeeToFiat, 0.0022)
+    assert.strictEqual(summary.derivTakerFee, 0.00075)
+    assert.strictEqual(summary.leoLev, 0)
+    assert.strictEqual(summary.leoAmountAvg, 0.002)
+  })
+
+  it('correctly parses symbolDetails response', async () => {
+    srv = new MockRESTv2Server({ listen: true })
+    const r = getTestREST2({ transform: true })
+
+    srv.setResponse('info_pairs', [
+      [
+        ['BTCUSD', [null, null, null, '0.0002', '2002.0', null, null, null, 0.2, 0.1]],
+        ['BTCEUR', [null, null, null, '0.00021', '2000.0', null, null, null, null, null]]
+      ]
+    ])
+
+    const details = await r.symbolDetails()
+    assert.strictEqual(details[0].pair, 'BTCUSD')
+    assert.strictEqual(details[0].initialMargin, 0.2)
+    assert.strictEqual(details[0].minimumMargin, 0.1)
+    assert.strictEqual(details[0].maximumOrderSize, '2002.0')
+    assert.strictEqual(details[0].minimumOrderSize, '0.0002')
+    assert.strictEqual(details[0].margin, true)
+
+    assert.strictEqual(details[1].pair, 'BTCEUR')
+    assert.strictEqual(details[1].initialMargin, null)
+    assert.strictEqual(details[1].minimumMargin, null)
+    assert.strictEqual(details[1].maximumOrderSize, '2000.0')
+    assert.strictEqual(details[1].minimumOrderSize, '0.00021')
+    assert.strictEqual(details[1].margin, false)
+  })
+
+  it('correctly parses keyPermissions response', async () => {
+    srv = new MockRESTv2Server({ listen: true })
+    const r = getTestREST2({ transform: true })
+
+    srv.setResponse('auth_permissions', [
+      ['account', 0, 0],
+      ['orders', 1, 0],
+      ['funding', 0, 1],
+      ['settings', 1, 1]
+    ])
+
+    const perms = await r.keyPermissions()
+    assert.strictEqual(perms[0].key, 'account')
+    assert.strictEqual(perms[0].read, false)
+    assert.strictEqual(perms[0].write, false)
+
+    assert.strictEqual(perms[1].key, 'orders')
+    assert.strictEqual(perms[1].read, true)
+    assert.strictEqual(perms[1].write, false)
+
+    assert.strictEqual(perms[2].key, 'funding')
+    assert.strictEqual(perms[2].read, false)
+    assert.strictEqual(perms[2].write, true)
+
+    assert.strictEqual(perms[3].key, 'settings')
+    assert.strictEqual(perms[3].read, true)
+    assert.strictEqual(perms[3].write, true)
+  })
+
+  it('correctly executes closePosition method', async () => {
+    srv = new MockRESTv2Server({ listen: true })
+    const r = getTestREST2({ transform: true })
+
+    const orderRes = [
+      54866913445, null, 1607956105914, 'tBTCUST',
+      1607956106828, 1607956106828, -20, -20, 'MARKET', null,
+      null, null, 512, 'ACTIVE (note:POSCLOSE)', null, null,
+      19107, 0, 0, 0, null, null, null, 0, 0, null, null, null,
+      'API>BFX', null, null, null
+    ]
+
+    srv.setResponse('positions', [
+      [
+        'tBTCUST', 'ACTIVE', 20, 19112.589492392, 0, 0, -896.029847839973, -0.034477234990170615,
+        13768.237954491486, 1.757758329330831, null, 145287699, null, null, null, 0, null, 0, 0,
+        {
+          reason: 'TRADE',
+          order_id: 54864866189,
+          order_id_oppo: 54866447371,
+          liq_stage: null,
+          trade_price: '19119.0',
+          trade_amount: '0.59455843'
+        }
+      ]
+    ])
+
+    srv.setResponse('order_submit', [
+      1567590617.442, 'on-req', 1235, null, [orderRes],
+      null, 'SUCCESS', 'Submitting1 orders.'
+    ])
+
+    const order = await r.closePosition({ position_id: 145287699 })
+    assert.deepStrictEqual(order, orderRes)
   })
 })
