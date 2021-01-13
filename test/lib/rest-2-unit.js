@@ -73,6 +73,8 @@ describe('RESTv2', () => {
     testMethod('ledgers', '/auth/r/ledgers/USD/hist', '_makeAuthRequest', 'USD')
     testMethod('publicPulseProfile', '/pulse/profile/Bitfinex', '_makePublicRequest', 'Bitfinex')
     testMethod('addPulse', '/auth/w/pulse/add', '_makeAuthRequest')
+    testMethod('addPulseComment', '/auth/w/pulse/add', '_makeAuthRequest', { parent: 'parent', content: 'content' })
+    testMethod('fetchPulseComments', '/auth/r/pulse/hist', '_makeAuthRequest', { parent: 'parent' })
     testMethod('deletePulse', '/auth/w/pulse/del', '_makeAuthRequest')
     testMethod('publicPulseHistory', '/pulse/hist?limit=2&end=1589559090651', '_makePublicRequest', 2, 1589559090651)
     testMethod('pulseHistory', '/auth/r/pulse/hist', '_makeAuthRequest')

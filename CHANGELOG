@@ -11,6 +11,10 @@
 - RESTv2: upgraded keyPermissions to v2, response format changed
 - RESTv2: upgraded closePosition to v2, response format changed
 
+# 3.1.0
+- RESTv2: add addPulseComment function
+- RESTv2: add fetchPulseComments function
+
 # 3.0.19
 - RESTv2: add _cust_ip to generateToken function
 - Remove Babel

@@ -35,6 +35,7 @@
     "Simone Poggi <simone@bitfinex.com> (https://www.bitfinex.com)",
     "Paolo Ardoino <paolo@bitfinex.com> (https://www.bitfinex.com)",
     "Jacob Plaster <jacob.plaster@bitfinex.com> (https://www.bitfinex.com)",
+    "Abhishek Shrestha <abhishek.shrestha@bitfinex.com> (https://www.bitfinex.com)",
     "Vigan Abdurrahmani <vigan.abdurrahmani@bitfinex.com> (https://www.bitfinex.com)"
   ],
   "license": "MIT",
@@ -62,7 +63,7 @@
     "standard": "^14.1.0"
   },
   "dependencies": {
-    "bfx-api-node-models": "^1.3.0",
+    "bfx-api-node-models": "^1.3.1",
     "bfx-api-node-util": "^1.0.4",
     "bluebird": "^3.5.5",
     "debug": "^4.1.1",
