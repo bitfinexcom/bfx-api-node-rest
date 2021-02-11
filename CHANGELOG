@@ -1,3 +1,6 @@
+# 4.0.1
+- RESTv2: add accountSummaryFull function
+
 # 4.0.0
 - RESTv2: removed RESTv1 usage inside RESTv2
 - RESTv2: removed _rest1
