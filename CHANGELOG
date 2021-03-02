@@ -1,3 +1,7 @@
+# 4.1.0
+- RESTv2: add payInvoiceCreate method
+- RESTv2: add payInvoiceList method
+
 # 4.0.0
 - RESTv2: removed RESTv1 usage inside RESTv2
 - RESTv2: removed _rest1
