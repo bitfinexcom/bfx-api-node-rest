@@ -26,6 +26,10 @@ const runInvoiceNew = async () => {
     customerInfo: {
       nationality: 'DE',
       residCountry: 'GB',
+      residCity: 'London',
+      residZipCode: 'WC2H 7NA',
+      residStreet: '5-6 Leicester Square',
+      fullName: 'John Doe',
       email: 'john@example.com'
     }
   }
