@@ -1,3 +1,6 @@
+# 4.1.1
+- RESTv2: adjusted jsdoc for required email field in payInvoiceCreate
+
 # 4.1.0
 - RESTv2: add payInvoiceCreate method
 - RESTv2: add payInvoiceList method
