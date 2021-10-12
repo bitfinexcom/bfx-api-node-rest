@@ -154,7 +154,8 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['submitOrder', 'order_submit', [new Order({ type: 'EXCHANGE_MARKET', symbol: 'tBTCUST', price: 17832, amount: 0.3 })]],
     ['keyPermissions', 'auth_permissions', []],
     ['payInvoiceCreate', 'invoice_submit', [{}]],
-    ['payInvoiceList', 'invoice_list', [{}]]
+    ['payInvoiceList', 'invoice_list', [{}]],
+    ['payInvoiceComplete', 'invoice_complete', [{}]]
   ]
 
   methods.forEach((m) => {
