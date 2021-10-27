@@ -1,3 +1,6 @@
+# 4.2.0
+- RESTv2: add payInvoiceComplete method
+
 # 4.1.4
 - RESTv2: adjusted symbolDetails to return future pairs info, returns future pairs by default
 
