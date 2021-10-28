@@ -1,3 +1,12 @@
+# 4.2.0
+- RESTv2: add payInvoiceComplete method
+
+# 4.1.4
+- RESTv2: adjusted symbolDetails to return future pairs info, returns future pairs by default
+
+# 4.1.3
+- RESTv2: fixed filtering out false writePermission in generateToken
+
 # 4.1.2
 - RESTv2: fixed missing caps param in generateToken endpoint
 

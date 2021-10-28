@@ -150,11 +150,12 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['cancelOrderMulti', 'cancel_order_multi.123', [{ id: [123] }]],
     ['orderMultiOp', 'order_multi_op', [[[]]]],
     ['accountSummary', 'account_summary', []],
-    ['symbolDetails', 'info_pairs', []],
+    ['symbolDetails', 'info_pairs', [{}]],
     ['submitOrder', 'order_submit', [new Order({ type: 'EXCHANGE_MARKET', symbol: 'tBTCUST', price: 17832, amount: 0.3 })]],
     ['keyPermissions', 'auth_permissions', []],
     ['payInvoiceCreate', 'invoice_submit', [{}]],
     ['payInvoiceList', 'invoice_list', [{}]],
+    ['payInvoiceComplete', 'invoice_complete', [{}]],
     ['getCoreSettings', 'core_settings', [[]]]
   ]
 
