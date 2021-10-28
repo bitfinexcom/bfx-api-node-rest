@@ -155,7 +155,8 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['keyPermissions', 'auth_permissions', []],
     ['payInvoiceCreate', 'invoice_submit', [{}]],
     ['payInvoiceList', 'invoice_list', [{}]],
-    ['payInvoiceComplete', 'invoice_complete', [{}]]
+    ['payInvoiceComplete', 'invoice_complete', [{}]],
+    ['getCoreSettings', 'core_settings', [[]]]
   ]
 
   methods.forEach((m) => {
