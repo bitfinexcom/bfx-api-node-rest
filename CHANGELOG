@@ -1,3 +1,6 @@
+# 4.3.0
+- RESTv2: add getCoreSettings method
+
 # 4.2.0
 - RESTv2: add payInvoiceComplete method
 
