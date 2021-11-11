@@ -5,7 +5,14 @@ const assert = require('assert')
 const _isString = require('lodash/isString')
 const _isEmpty = require('lodash/isEmpty')
 const SocksProxyAgent = require('socks-proxy-agent')
-const RESTv2 = require('../../lib/rest2')
+const proxyquire = require('proxyquire')
+const { stub } = require('sinon')
+
+const rpStub = stub()
+
+const RESTv2 = proxyquire('../../lib/rest2', {
+  'request-promise': rpStub.resolves(null)
+})
 
 // TODO: Move other tests here where appropriate (unit)
 
