@@ -5,7 +5,14 @@ const assert = require('assert')
 const _isString = require('lodash/isString')
 const _isEmpty = require('lodash/isEmpty')
 const SocksProxyAgent = require('socks-proxy-agent')
-const RESTv2 = require('../../lib/rest2')
+const proxyquire = require('proxyquire')
+const { stub } = require('sinon')
+
+const rpStub = stub()
+
+const RESTv2 = proxyquire('../../lib/rest2', {
+  'request-promise': rpStub.resolves(null)
+})
 
 // TODO: Move other tests here where appropriate (unit)
 
@@ -48,6 +55,21 @@ describe('RESTv2', () => {
       }
 
       rest.trades('tBTCUSD', 1, 2, 3, 4)
+    })
+  })
+
+  describe('request body', () => {
+    it('excludes nullish', () => {
+      const rest = new RESTv2()
+      rest._apiKey = 'key'
+      rest._apiSecret = 'secret'
+      rest._makeAuthRequest('path', { a: 1, b: '', c: null, d: undefined })
+
+      assert(rpStub.lastCall, 'should be called')
+      const arg = rpStub.lastCall.args[0]
+
+      assert.equal(typeof arg, 'object', 'argument isnt an object')
+      assert.deepStrictEqual(arg.body, { a: 1, b: '' })
     })
   })
 
