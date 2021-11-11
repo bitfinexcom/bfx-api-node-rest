@@ -58,6 +58,21 @@ describe('RESTv2', () => {
     })
   })
 
+  describe('request body', () => {
+    it('excludes nullish', () => {
+      const rest = new RESTv2()
+      rest._apiKey = 'key'
+      rest._apiSecret = 'secret'
+      rest._makeAuthRequest('path', { a: 1, b: '', c: null, d: undefined })
+
+      assert(rpStub.lastCall, 'should be called')
+      const arg = rpStub.lastCall.args[0]
+
+      assert.equal(typeof arg, 'object', 'argument isnt an object')
+      assert.deepStrictEqual(arg.body, { a: 1, b: '' })
+    })
+  })
+
   describe('listener methods', () => {
     const testMethod = (name, url, method, ...params) => {
       describe(name, () => {
