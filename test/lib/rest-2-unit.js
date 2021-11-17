@@ -105,5 +105,6 @@ describe('RESTv2', () => {
     testMethod('keepFunding', '/auth/w/funding/keep', '_makeAuthRequest', { type: 'type', id: 'id' })
     testMethod('cancelOrderMulti', '/auth/w/order/cancel/multi', '_makeAuthRequest', { id: [123] })
     testMethod('orderMultiOp', '/auth/w/order/multi', '_makeAuthRequest', [['oc_multi', { id: [1] }]])
+    testMethod('invalidateAuthToken', '/auth/w/token/del', '_makeAuthRequest', 'token')
   })
 })
