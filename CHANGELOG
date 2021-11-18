@@ -1,3 +1,6 @@
+# 4.4.0
+- RESTv2: add invalidateAuthToken method
+
 # 4.3.1
 - RESTv2: Fix nullish (optional) parameters in requests
 
