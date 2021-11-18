@@ -43,7 +43,7 @@
     "url": "https://github.com/bitfinexcom/bfx-api-node-rest/issues"
   },
   "devDependencies": {
-    "bfx-api-mock-srv": "^1.1.6",
+    "bfx-api-mock-srv": "^1.2.0",
     "chai": "^4.2.0",
     "docdash": "^1.2.0",
     "eslint": "^6.8.0",
