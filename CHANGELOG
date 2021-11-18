@@ -1,5 +1,6 @@
 # 4.5.0
 - RESTv2: add payDepositsUnlinked method
+- RESTv2: fix issue with wrong type in jsdocs for amount in transfer method
 
 # 4.4.0
 - RESTv2: add invalidateAuthToken method
