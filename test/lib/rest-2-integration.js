@@ -156,7 +156,9 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['payInvoiceCreate', 'invoice_submit', [{}]],
     ['payInvoiceList', 'invoice_list', [{}]],
     ['payInvoiceComplete', 'invoice_complete', [{}]],
-    ['getCoreSettings', 'core_settings', [[]]]
+    ['getCoreSettings', 'core_settings', [[]]],
+    ['invalidateAuthToken', 'delete_token', [[]]],
+    ['payDepositsUnlinked', 'deposits_unlinked', [{}]]
   ]
 
   methods.forEach((m) => {
