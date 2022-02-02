@@ -1,3 +1,6 @@
+# 4.5.1
+- RESTv2: add ability to set timeout for private requests and change value in extra option
+
 # 4.5.0
 - RESTv2: add payDepositsUnlinked method
 - RESTv2: fix issue with wrong type in jsdocs for amount in transfer method
