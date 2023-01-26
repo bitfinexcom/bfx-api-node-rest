@@ -1,3 +1,10 @@
+# 4.6.1
+- RESTv2: add submitRecurringAlgoOrder method
+- RESTv2: add getRecurringAlgoOrder method
+- RESTv2: add updateRecurringAlgoOrder method
+- RESTv2: add cancelRecurringAlgoOrder method
+- RESTv2: add getRecurringAlgoOrders method
+
 # 4.6.0
 - RESTv2: add ability to set timeout for private requests and change value in extra option
 
