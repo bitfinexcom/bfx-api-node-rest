@@ -1,3 +1,7 @@
+# 4.6.2
+- RESTv2: add getRecurringAlgoOrdersStatus method
+- RESTv2: fix wrong return type of cancelRecurringAlgoOrder and updateRecurringAlgoOrder method
+
 # 4.6.1
 - RESTv2: add submitRecurringAlgoOrder method
 - RESTv2: add getRecurringAlgoOrder method
