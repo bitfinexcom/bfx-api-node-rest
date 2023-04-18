@@ -45,7 +45,7 @@ describe('rest2 api client', () => {
 
     return new Promise((resolve) => {
       server.listen(PORT, () => {
-        bhttp.ticker('tBTCUSD', (err, res) => {
+        bhttp.ticker({ symbol: 'tBTCUSD' }, (err, res) => {
           assert.strictEqual(err, null)
           assert.deepStrictEqual(res, JSON.parse(testResBody))
 
