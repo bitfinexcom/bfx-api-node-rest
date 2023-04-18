@@ -1,3 +1,8 @@
+# 5.0.0
+- RESTv2: refactored methods in format (params, cb)
+- RESTv2: replaced request-promise and bluebird with native promises and node-fetch
+- RESTv1: replaced request with node-fetch
+
 # 4.6.1
 - RESTv2: add submitRecurringAlgoOrder method
 - RESTv2: add getRecurringAlgoOrder method
