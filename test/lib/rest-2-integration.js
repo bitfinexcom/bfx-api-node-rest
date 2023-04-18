@@ -103,56 +103,56 @@ describe('RESTv2 integration (mock server) tests', () => {
   // [rest2MethodName, finalMockResponseKey, rest2MethodArgs]
   const methods = [
     // public
-    ['ticker', 'ticker.tBTCUSD', ['tBTCUSD']],
-    ['tickers', 'tickers', [['tBTCUSD', 'tETHUSD']]],
-    ['tickersHistory', 'tickers_hist', [['tBTCUSD', 'tETHUSD'], 'start', 'end', 'limit']],
-    ['liquidations', 'liquidations.start.end.limit.sort', ['start', 'end', 'limit', 'sort']],
-    ['stats', 'stats.key.context', ['key', 'context']],
+    ['ticker', 'ticker.tBTCUSD', [{ symbol: 'tBTCUSD' }]],
+    ['tickers', 'tickers', [{ symbols: ['tBTCUSD', 'tETHUSD'] }]],
+    ['tickersHistory', 'tickers_hist', [{ symbols: ['tBTCUSD', 'tETHUSD'], start: 'start', end: 'end', limit: 'limit' }]],
+    ['liquidations', 'liquidations.start.end.limit.sort', [{ start: 'start', end: 'end', limit: 'limit', sort: 'sort' }]],
+    ['stats', 'stats.key.context', [{ key: 'key', context: 'context' }]],
     ['candles', 'candles.trade:30m:tBTCUSD.hist', [{ timeframe: '30m', symbol: 'tBTCUSD', section: 'hist' }]],
-    ['statusMessages', 'status_messages.deriv.ALL', ['deriv', ['ALL']]],
-    ['publicPulseProfile', 'public_pulse_profile.nickname', ['nickname']],
-    ['publicPulseHistory', 'public_pulse_hist', ['limit', 'end']],
+    ['statusMessages', 'status_messages.deriv.ALL', [{ type: 'deriv', key: ['ALL'] }]],
+    ['publicPulseProfile', 'public_pulse_profile.nickname', [{ nickname: 'nickname' }]],
+    ['publicPulseHistory', 'public_pulse_hist', [{ limit: 'limit', end: 'end' }]],
     // mocking server not really aware of public post requests so commenting out for now
     // ['marketAveragePrice', 'market_average_price.fUSD.100', [{ symbol: 'fUSD', amount: 100 }]],
 
     // private
-    ['alertList', 'alerts.price', ['price']],
-    ['alertSet', 'alert_set.type.symbol.price', ['type', 'symbol', 'price']],
-    ['alertDelete', 'alert_del.symbol.price', ['symbol', 'price']],
-    ['accountTrades', 'trades.BTCUSD.0.10.50.1', ['BTCUSD', 0, 10, 50, 1]],
+    ['alertList', 'alerts.price', [{ type: 'price' }]],
+    ['alertSet', 'alert_set.type.symbol.price', [{ type: 'type', symbol: 'symbol', price: 'price' }]],
+    ['alertDelete', 'alert_del.symbol.price', [{ symbol: 'symbol', price: 'price' }]],
+    ['accountTrades', 'trades.BTCUSD.0.10.50.1', [{ symbol: 'BTCUSD', start: 0, end: 10, limit: 50, sort: 1 }]],
     ['wallets', 'wallets'],
-    ['logins', 'logins_hist', ['start', 'end', 'limit']],
-    ['changeLogs', 'change_log', ['start', 'end', 'limit']],
-    ['walletsHistory', 'wallets_hist.end.currency', ['end', 'currency']],
-    ['activeOrders', 'active_orders'],
-    ['orderHistory', 'orders.sym.start.end.limit', ['sym', 'start', 'end', 'limit']],
+    ['logins', 'logins_hist', [{ start: 'start', end: 'end', limit: 'limit' }]],
+    ['changeLogs', 'change_log', [{ start: 'start', end: 'end', limit: 'limit' }]],
+    ['walletsHistory', 'wallets_hist.end.currency', [{ end: 'end', currency: 'currency' }]],
+    ['activeOrders', 'active_orders', [{}]],
+    ['orderHistory', 'orders.sym.start.end.limit', [{ symbol: 'sym', start: 'start', end: 'end', limit: 'limit' }]],
     ['positions'],
-    ['positionsHistory', 'positions_hist.start.end.limit', ['start', 'end', 'limit']],
-    ['positionsSnapshot', 'positions_snap.start.end.limit', ['start', 'end', 'limit']],
-    ['positionsAudit', 'positions_audit.id.start.end.limit', ['id', 'start', 'end', 'limit']],
-    ['fundingOffers', 'f_offers.sym', ['sym']],
-    ['fundingOfferHistory', 'f_offer_hist.sym.start.end.limit', ['sym', 'start', 'end', 'limit']],
-    ['fundingLoans', 'f_loans.sym', ['sym']],
-    ['fundingLoanHistory', 'f_loan_hist.sym.start.end.limit', ['sym', 'start', 'end', 'limit']],
-    ['fundingCredits', 'f_credits.sym', ['sym']],
-    ['fundingCreditHistory', 'f_credit_hist.sym.start.end.limit', ['sym', 'start', 'end', 'limit']],
-    ['fundingTrades', 'f_trade_hist.sym.start.end.limit', ['sym', 'start', 'end', 'limit']],
-    ['marginInfo', 'margin_info.k', ['k']],
-    ['fundingInfo', 'f_info.k', ['k']],
-    ['derivsPositionCollateralSet', 'derivs_pos_col_set.symbol.collateral', ['symbol', 'collateral']],
+    ['positionsHistory', 'positions_hist.start.end.limit', [{ start: 'start', end: 'end', limit: 'limit' }]],
+    ['positionsSnapshot', 'positions_snap.start.end.limit', [{ start: 'start', end: 'end', limit: 'limit' }]],
+    ['positionsAudit', 'positions_audit.id.start.end.limit', [{ id: 'id', start: 'start', end: 'end', limit: 'limit' }]],
+    ['fundingOffers', 'f_offers.sym', [{ symbol: 'sym' }]],
+    ['fundingOfferHistory', 'f_offer_hist.sym.start.end.limit', [{ symbol: 'sym', start: 'start', end: 'end', limit: 'limit' }]],
+    ['fundingLoans', 'f_loans.sym', [{ symbol: 'sym' }]],
+    ['fundingLoanHistory', 'f_loan_hist.sym.start.end.limit', [{ symbol: 'sym', start: 'start', end: 'end', limit: 'limit' }]],
+    ['fundingCredits', 'f_credits.sym', [{ symbol: 'sym' }]],
+    ['fundingCreditHistory', 'f_credit_hist.sym.start.end.limit', [{ symbol: 'sym', start: 'start', end: 'end', limit: 'limit' }]],
+    ['fundingTrades', 'f_trade_hist.sym.start.end.limit', [{ symbol: 'sym', start: 'start', end: 'end', limit: 'limit' }]],
+    ['marginInfo', 'margin_info.k', [{ key: 'k' }]],
+    ['fundingInfo', 'f_info.k', [{ key: 'k' }]],
+    ['derivsPositionCollateralSet', 'derivs_pos_col_set.symbol.collateral', [{ symbol: 'symbol', collateral: 'collateral' }]],
     ['performance'],
-    ['calcAvailableBalance', 'calc.sym.dir.rate.type', ['sym', 'dir', 'rate', 'type']],
+    ['calcAvailableBalance', 'calc.sym.dir.rate.type', [{ symbol: 'sym', dir: 'dir', rate: 'rate', type: 'type' }]],
     ['addPulse', 'add_pulse.title.content', [{ title: 'title', content: 'content' }]],
     ['deletePulse', 'delete_pulse.pid', [{ pid: 'pid' }]],
     ['pulseHistory', 'pulse_hist.1', [{ isPublic: 1 }]],
     ['generateInvoice', 'generate_invoice.LNX.wallet.amount', [{ currency: 'LNX', wallet: 'wallet', amount: 'amount' }]],
     ['keepFunding', 'keep_funding.type.id', [{ type: 'type', id: 'id' }]],
     ['cancelOrderMulti', 'cancel_order_multi.123', [{ id: [123] }]],
-    ['orderMultiOp', 'order_multi_op', [[[]]]],
-    ['accountSummary', 'account_summary', []],
+    ['orderMultiOp', 'order_multi_op', [{ ops: [[]] }]],
+    ['accountSummary', 'account_summary', [{}]],
     ['symbolDetails', 'info_pairs', [{}]],
-    ['submitOrder', 'order_submit', [new Order({ type: 'EXCHANGE_MARKET', symbol: 'tBTCUST', price: 17832, amount: 0.3 })]],
-    ['keyPermissions', 'auth_permissions', []],
+    ['submitOrder', 'order_submit', [{ order: new Order({ type: 'EXCHANGE_MARKET', symbol: 'tBTCUST', price: 17832, amount: 0.3 }) }]],
+    ['keyPermissions', 'auth_permissions', [{}]],
     ['payInvoiceCreate', 'invoice_submit', [{}]],
     ['payInvoiceList', 'invoice_list', [{}]],
     ['payInvoiceComplete', 'invoice_complete', [{}]],
@@ -164,7 +164,7 @@ describe('RESTv2 integration (mock server) tests', () => {
   methods.forEach((m) => {
     const name = m[0]
     const dataKey = m[1] || m[0]
-    const args = m[2] || []
+    const args = m[2] || [{}]
 
     it(`${name}: fetches expected data`, (done) => {
       srv = new MockRESTv2Server({ listen: true })
@@ -190,7 +190,7 @@ describe('RESTv2 integration (mock server) tests', () => {
 
     srv.setResponse('f_offers.fUSD', [getTestFundingOffer()])
 
-    const [fo] = await r.fundingOffers('fUSD')
+    const [fo] = await r.fundingOffers({ symbol: 'fUSD' })
     auditTestFundingOffer(fo)
   })
 
@@ -200,7 +200,7 @@ describe('RESTv2 integration (mock server) tests', () => {
 
     srv.setResponse('f_loans.fUSD', [getTestFundingLoan()])
 
-    const [fo] = await r.fundingLoans('fUSD')
+    const [fo] = await r.fundingLoans({ symbol: 'fUSD' })
     auditTestFundingLoan(fo)
   })
 
@@ -210,7 +210,7 @@ describe('RESTv2 integration (mock server) tests', () => {
 
     srv.setResponse('f_credits.fUSD', [getTestFundingCredit()])
 
-    const [fc] = await r.fundingCredits('fUSD')
+    const [fc] = await r.fundingCredits({ symbol: 'fUSD' })
     auditTestFundingCredit(fc)
   })
 
