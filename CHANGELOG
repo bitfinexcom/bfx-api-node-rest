@@ -1,6 +1,7 @@
 # 5.0.0
 - RESTv2: refactored methods in format (params, cb)
 - RESTv2: replaced request-promise and bluebird with native promises and node-fetch
+- RESTv2: added support for order transform on submitOrder and closePosition
 - RESTv1: replaced request with node-fetch
 
 # 4.6.1
