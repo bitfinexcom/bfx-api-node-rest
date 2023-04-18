@@ -11,7 +11,7 @@ const { stub } = require('sinon')
 const rpStub = stub()
 
 const RESTv2 = proxyquire('../../lib/rest2', {
-  'request-promise': rpStub.resolves(null)
+  'node-fetch': rpStub.resolves(null)
 })
 
 // TODO: Move other tests here where appropriate (unit)
@@ -67,10 +67,10 @@ describe('RESTv2', () => {
       rest._makeAuthRequest('path', { a: 1, b: '', c: null, d: undefined })
 
       assert(rpStub.lastCall, 'should be called')
-      const arg = rpStub.lastCall.args[0]
+      const reqOpts = rpStub.lastCall.args[1]
 
-      assert.equal(typeof arg, 'object', 'argument isnt an object')
-      assert.deepStrictEqual(arg.body, { a: 1, b: '' })
+      assert.equal(typeof reqOpts, 'object', 'argument isnt an object')
+      assert.deepStrictEqual(reqOpts.body, JSON.stringify({ a: 1, b: '' }))
     })
   })
 
