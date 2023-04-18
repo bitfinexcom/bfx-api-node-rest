@@ -328,6 +328,42 @@ describe('RESTv2 integration (mock server) tests', () => {
     ])
 
     const order = await r.closePosition({ position_id: 145287699 })
+    assert.deepStrictEqual(order.toJS(), new Order(orderRes).toJS())
+  })
+
+  it('correctly executes closePosition method without transform', async () => {
+    srv = new MockRESTv2Server({ listen: true })
+    const r = getTestREST2({ transform: false })
+
+    const orderRes = [
+      54866913445, null, 1607956105914, 'tBTCUST',
+      1607956106828, 1607956106828, -20, -20, 'MARKET', null,
+      null, null, 512, 'ACTIVE (note:POSCLOSE)', null, null,
+      19107, 0, 0, 0, null, null, null, 0, 0, null, null, null,
+      'API>BFX', null, null, null
+    ]
+
+    srv.setResponse('positions', [
+      [
+        'tBTCUST', 'ACTIVE', 20, 19112.589492392, 0, 0, -896.029847839973, -0.034477234990170615,
+        13768.237954491486, 1.757758329330831, null, 145287699, null, null, null, 0, null, 0, 0,
+        {
+          reason: 'TRADE',
+          order_id: 54864866189,
+          order_id_oppo: 54866447371,
+          liq_stage: null,
+          trade_price: '19119.0',
+          trade_amount: '0.59455843'
+        }
+      ]
+    ])
+
+    srv.setResponse('order_submit', [
+      1567590617.442, 'on-req', 1235, null, [orderRes],
+      null, 'SUCCESS', 'Submitting1 orders.'
+    ])
+
+    const order = await r.closePosition({ position_id: 145287699 })
     assert.deepStrictEqual(order, orderRes)
   })
 })
