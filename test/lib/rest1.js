@@ -6,6 +6,8 @@
 const DNS = require('dns')
 const assert = require('assert')
 const { expect } = require('chai')
+  .use(require('chai-as-promised'))
+  .use(require('dirty-chai'))
 const _has = require('lodash/has')
 const _map = require('lodash/map')
 const _keys = require('lodash/keys')
@@ -29,11 +31,11 @@ describe('REST v1', () => {
   describe('errors', function () {
     const bfx_rest = new RESTv1()
     this.timeout(5000)
-    it('should error out if a bad endpoint is given', () => {
-      expect(bfx_rest.make_public_request).to.throw(Error)
+    it('should error out if a bad endpoint is given', async () => {
+      await expect(bfx_rest.make_public_request()).to.be.rejected()
     })
-    it('should fail on authenticated requests if no api_key and api_secret', () => {
-      expect(bfx_rest.account_infos).to.throw(Error)
+    it('should fail on authenticated requests if no api_key and api_secret', async () => {
+      await expect(bfx_rest.account_infos()).to.be.rejected()
     })
   })
 
