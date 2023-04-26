@@ -1,3 +1,7 @@
+# 5.0.1
+- RESTv2: added address filter in movements hist
+- RESTv2: added endpoint for querying lnx invoices and payments
+
 # 5.0.0
 - RESTv2: refactored methods in format (params, cb)
 - RESTv2: replaced request-promise and bluebird with native promises and node-fetch
