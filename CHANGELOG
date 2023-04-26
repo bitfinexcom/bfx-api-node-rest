@@ -1,3 +1,6 @@
+# 5.0.2
+- RESTv2: fix empty id array in movements hist
+
 # 5.0.1
 - RESTv2: added address filter in movements hist
 - RESTv2: added endpoint for querying lnx invoices and payments
