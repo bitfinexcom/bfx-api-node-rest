@@ -1,3 +1,6 @@
+# 5.1.0
+- RESTv2: add movementInfo method
+
 # 5.0.2
 - RESTv2: fix empty id array in movements hist
 
