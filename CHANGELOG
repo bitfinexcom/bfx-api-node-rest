@@ -1,3 +1,13 @@
+# 5.1.2
+- RESTv2: add payCurrencyConversionList method
+- RESTv2: add payAddCurrencyConversion method
+- RESTv2: add payRemoveCurrencyConversion method
+- RESTv2: add payMerchantDailyLimit method
+- RESTv2: add payMerchantSettingsWrite method
+- RESTv2: add payMerchantSettingsWriteBatch method
+- RESTv2: add payMerchantSettingsRead method
+- RESTv2: add payMerchantSettingsList method
+
 # 5.1.1
 - dep: upgraded bfx-api-node-models to 1.7.1 for compatibility
 
