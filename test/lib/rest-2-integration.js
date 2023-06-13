@@ -171,17 +171,11 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['payRefundInvoice','pay_invoice_refund', [{}]],
     ['payInvoiceMarkRefunded','pay_invoice_mark_refunded', [{}]],
     ['payInvoiceEvents','pay_invoice_events', [{}]],
-    ['payInvoicePayInstant','pay_instant', [{}]],
-    ['payUploadImage','pay_upload_image', [{}]],
-    ['payCreditCardRates','pay_credit_card_rates', [{}]],
     ['payPublicInvoiceCurrencyDetailed','pay_public_invoice_currency_detailed', [{}]],
     ['payInvoiceCurrencyDetailed','pay_currency_detailed', [{}]],
     ['payCurrencyList','pay_currency_list', [{}]],
-    ['payInvoiceFeedback','pay_invoice_feedback', [{}]],
-    ['payMerchantFeedback','pay_merchant_feedback', [{}]],
     ['payPublicInvoiceUpdate','pay_public_invoice_update', [{}]],
     ['payInvoiceUpdate','pay_invoice_update', [{}]],
-    ['payInvoiceRegenerate','pay_invoice_regenerate', [{}]],
     ['payInvoiceCreatePos','pay_invoice_create_pos', [{}]],
   ]
 
