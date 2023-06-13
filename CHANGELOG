@@ -1,4 +1,4 @@
-# 5.1.2
+# 5.2.0
 - RESTv2: add payCurrencyConversionList method
 - RESTv2: add payAddCurrencyConversion method
 - RESTv2: add payRemoveCurrencyConversion method
