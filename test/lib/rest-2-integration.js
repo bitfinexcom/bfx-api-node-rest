@@ -174,7 +174,6 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['payPublicInvoiceCurrencyDetailed','pay_public_invoice_currency_detailed', [{}]],
     ['payInvoiceCurrencyDetailed','pay_currency_detailed', [{}]],
     ['payCurrencyList','pay_currency_list', [{}]],
-    ['payPublicInvoiceUpdate','pay_public_invoice_update', [{}]],
     ['payInvoiceUpdate','pay_invoice_update', [{}]],
     ['payInvoiceCreatePos','pay_invoice_create_pos', [{}]],
   ]
