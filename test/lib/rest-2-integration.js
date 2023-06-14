@@ -164,7 +164,7 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['payMerchantSettingsWriteBatch', 'pay_settings_set_batch', [{}]],
     ['payMerchantSettingsRead', 'pay_settings_get', [{}]],
     ['payMerchantSettingsList', 'pay_settings_list', [{}]],
-    ['getCoreSettings', 'core_settings', [[{}]]],
+    ['getCoreSettings', 'core_settings', [[]]],
     ['invalidateAuthToken', 'delete_token', [[{}]]],
     ['payDepositsUnlinked', 'deposits_unlinked', [{}]],
     ['movementInfo', 'movement_info.id', [{ id: 'id' }]],
