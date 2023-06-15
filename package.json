@@ -1,6 +1,6 @@
 {
   "name": "bfx-api-node-rest",
-  "version": "5.1.1",
+  "version": "5.2.0",
   "description": "Official Bitfinex REST v1 & v2 API interfaces",
   "engines": {
     "node": ">=8.3.0"
@@ -37,14 +37,15 @@
     "Paolo Ardoino <paolo@bitfinex.com> (https://www.bitfinex.com)",
     "Jacob Plaster <jacob.plaster@bitfinex.com> (https://www.bitfinex.com)",
     "Abhishek Shrestha <abhishek.shrestha@bitfinex.com> (https://www.bitfinex.com)",
-    "Vigan Abdurrahmani <vigan.abdurrahmani@bitfinex.com> (https://www.bitfinex.com)"
+    "Vigan Abdurrahmani <vigan.abdurrahmani@bitfinex.com> (https://www.bitfinex.com)",
+    "Sergio López <sergio.rico@bitfinex.com> (https://www.bitfinex.com)"
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bitfinexcom/bfx-api-node-rest/issues"
   },
   "devDependencies": {
-    "bfx-api-mock-srv": "^1.2.0",
+    "bfx-api-mock-srv": "^1.5.0",
     "chai": "^4.3.7",
     "chai-as-promised": "^7.1.1",
     "docdash": "^1.2.0",
