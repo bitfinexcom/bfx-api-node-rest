@@ -1,3 +1,6 @@
+# 5.3.0
+- RESTv2: add getWeightedAverages method
+
 # 5.2.0
 - RESTv2: add payCurrencyConversionList method
 - RESTv2: add payAddCurrencyConversion method

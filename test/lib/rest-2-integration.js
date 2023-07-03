@@ -176,6 +176,7 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['payCurrencyList','pay_currency_list', [{}]],
     ['payInvoiceUpdate','pay_invoice_update', [{}]],
     ['payInvoiceCreatePos','pay_invoice_create_pos', [{}]],
+    ['getWeightedAverages', 'weighted_averages.sym.start.end.limit', [{ symbol: 'sym', start: 'start', end: 'end', limit: 'limit' }]]
   ]
 
   methods.forEach((m) => {
