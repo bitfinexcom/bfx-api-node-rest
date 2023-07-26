@@ -1,3 +1,6 @@
+# 5.4.0
+- RESTv2: recurring algo order endpoints
+
 # 5.3.0
 - RESTv2: add getWeightedAverages method
 
