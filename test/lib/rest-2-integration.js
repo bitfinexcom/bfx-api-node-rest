@@ -110,8 +110,6 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['stats', 'stats.key.context', [{ key: 'key', context: 'context' }]],
     ['candles', 'candles.trade:30m:tBTCUSD.hist', [{ timeframe: '30m', symbol: 'tBTCUSD', section: 'hist' }]],
     ['statusMessages', 'status_messages.deriv.ALL', [{ type: 'deriv', key: ['ALL'] }]],
-    ['publicPulseProfile', 'public_pulse_profile.nickname', [{ nickname: 'nickname' }]],
-    ['publicPulseHistory', 'public_pulse_hist', [{ limit: 'limit', end: 'end' }]],
     // mocking server not really aware of public post requests so commenting out for now
     // ['marketAveragePrice', 'market_average_price.fUSD.100', [{ symbol: 'fUSD', amount: 100 }]],
 
@@ -142,9 +140,6 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['derivsPositionCollateralSet', 'derivs_pos_col_set.symbol.collateral', [{ symbol: 'symbol', collateral: 'collateral' }]],
     ['performance'],
     ['calcAvailableBalance', 'calc.sym.dir.rate.type', [{ symbol: 'sym', dir: 'dir', rate: 'rate', type: 'type' }]],
-    ['addPulse', 'add_pulse.title.content', [{ title: 'title', content: 'content' }]],
-    ['deletePulse', 'delete_pulse.pid', [{ pid: 'pid' }]],
-    ['pulseHistory', 'pulse_hist.1', [{ isPublic: 1 }]],
     ['generateInvoice', 'generate_invoice.LNX.wallet.amount', [{ currency: 'LNX', wallet: 'wallet', amount: 'amount' }]],
     ['keepFunding', 'keep_funding.type.id', [{ type: 'type', id: 'id' }]],
     ['cancelOrderMulti', 'cancel_order_multi.123', [{ id: [123] }]],
@@ -168,14 +163,14 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['invalidateAuthToken', 'delete_token', [[{}]]],
     ['payDepositsUnlinked', 'deposits_unlinked', [{}]],
     ['movementInfo', 'movement_info.id', [{ id: 'id' }]],
-    ['payRefundInvoice','pay_invoice_refund', [{}]],
-    ['payInvoiceMarkRefunded','pay_invoice_mark_refunded', [{}]],
-    ['payInvoiceEvents','pay_invoice_events', [{}]],
-    ['payPublicInvoiceCurrencyDetailed','pay_public_invoice_currency_detailed', [{}]],
-    ['payInvoiceCurrencyDetailed','pay_currency_detailed', [{}]],
-    ['payCurrencyList','pay_currency_list', [{}]],
-    ['payInvoiceUpdate','pay_invoice_update', [{}]],
-    ['payInvoiceCreatePos','pay_invoice_create_pos', [{}]],
+    ['payRefundInvoice', 'pay_invoice_refund', [{}]],
+    ['payInvoiceMarkRefunded', 'pay_invoice_mark_refunded', [{}]],
+    ['payInvoiceEvents', 'pay_invoice_events', [{}]],
+    ['payPublicInvoiceCurrencyDetailed', 'pay_public_invoice_currency_detailed', [{}]],
+    ['payInvoiceCurrencyDetailed', 'pay_currency_detailed', [{}]],
+    ['payCurrencyList', 'pay_currency_list', [{}]],
+    ['payInvoiceUpdate', 'pay_invoice_update', [{}]],
+    ['payInvoiceCreatePos', 'pay_invoice_create_pos', [{}]],
     ['getWeightedAverages', 'weighted_averages.sym.start.end.limit', [{ symbol: 'sym', start: 'start', end: 'end', limit: 'limit' }]]
   ]
 
