@@ -359,4 +359,36 @@ describe('RESTv2 integration (mock server) tests', () => {
     const order = await r.closePosition({ position_id: 145287699 })
     assert.deepStrictEqual(order, orderRes)
   })
+
+  it('timeouts on a long-running request', async () => {
+    srv = new MockRESTv2Server({ listen: false })
+    srv._apiServer.get('/v2/slow', (req, res) => {
+      setTimeout(() => {
+        res.json([42])
+      }, 300)
+    })
+    srv.listen()
+
+    const r = getTestREST2({ timeout: 100 })
+    try {
+      await r._makePublicRequest('/slow')
+      assert.fail('should have timed out')
+    } catch (err) {
+      assert.strictEqual(err.message, 'request timed out after 100ms')
+    }
+  })
+
+  it('succeeds when request is within timeout', async () => {
+    srv = new MockRESTv2Server({ listen: false })
+    srv._apiServer.get('/v2/fast', (req, res) => {
+      setTimeout(() => {
+        res.json([42])
+      }, 100)
+    })
+    srv.listen()
+
+    const r = getTestREST2({ timeout: 200 })
+    const res = await r._makePublicRequest('/fast')
+    assert.deepStrictEqual(res, [42])
+  })
 })
