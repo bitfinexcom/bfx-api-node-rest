@@ -1,3 +1,6 @@
+# 8.1.0
+- RESTv2: add wallet filter to ledgers
+
 # 8.0.0
 - RESTv2: add abort controller
 
