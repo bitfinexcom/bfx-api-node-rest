@@ -1,7 +1,6 @@
-/* eslint-env mocha */
 'use strict'
 
-const assert = require('assert')
+const test = require('brittle')
 const _isString = require('lodash/isString')
 const _isEmpty = require('lodash/isEmpty')
 const { SocksProxyAgent } = require('socks-proxy-agent')
@@ -16,42 +15,42 @@ const RESTv2 = proxyquire('../../lib/rest2', {
 
 // TODO: Move other tests here where appropriate (unit)
 
-describe('RESTv2', () => {
-  describe('default connection url', () => {
-    it('is a static member on the class', () => {
-      assert.ok(_isString(RESTv2.url) && !_isEmpty(RESTv2.url))
+test('RESTv2', (t) => {
+  t.test('default connection url', (t) => {
+    t.test('is a static member on the class', (t) => {
+      t.ok(_isString(RESTv2.url) && !_isEmpty(RESTv2.url))
     })
   })
 
-  describe('getURL', () => {
-    it('returns the URL the instance was constructed with', () => {
+  t.test('getURL', (t) => {
+    t.test('returns the URL the instance was constructed with', (t) => {
       const rest = new RESTv2({ url: 'test' })
-      assert.strictEqual(rest.getURL(), 'test', 'instance does not use provided URL')
+      t.is(rest.getURL(), 'test', 'instance does not use provided URL')
     })
   })
 
-  describe('usesAgent', () => {
-    it('returns true if an agent was passed to the constructor', () => {
+  t.test('usesAgent', (t) => {
+    t.test('returns true if an agent was passed to the constructor', (t) => {
       const rest = new RESTv2({
         agent: new SocksProxyAgent('socks4://127.0.0.1:9998')
       })
 
-      assert.ok(rest.usesAgent(), 'usesAgent() does not indicate agent presence when one was provided')
+      t.ok(rest.usesAgent(), 'usesAgent() does not indicate agent presence when one was provided')
     })
 
-    it('returns false if no agent was passed to the constructor', () => {
+    t.test('returns false if no agent was passed to the constructor', (t) => {
       const rest = new RESTv2()
-      assert.ok(!rest.usesAgent(), 'usesAgent() indicates agent presence when none provided')
+      t.ok(!rest.usesAgent(), 'usesAgent() indicates agent presence when none provided')
     })
   })
 
-  describe('trades', () => {
-    it('correctly builds query string', (done) => {
+  t.test('trades', (t) => {
+    t.test('correctly builds query string', (t) => {
+      t.plan(1)
       const rest = new RESTv2()
 
       rest._makePublicRequest = (url) => {
-        assert.strictEqual(url, '/trades/tBTCUSD/hist?start=1&end=2&limit=3&sort=4')
-        done()
+        t.is(url, '/trades/tBTCUSD/hist?start=1&end=2&limit=3&sort=4')
       }
 
       const params = { symbol: 'tBTCUSD', start: 1, end: 2, limit: 3, sort: 4 }
@@ -59,29 +58,32 @@ describe('RESTv2', () => {
     })
   })
 
-  describe('request body', () => {
-    it('excludes nullish', () => {
+  t.test('request body', (t) => {
+    t.test('excludes nullish', (t) => {
       const rest = new RESTv2()
       rest._apiKey = 'key'
       rest._apiSecret = 'secret'
-      rest._makeAuthRequest('path', { a: 1, b: '', c: null, d: undefined })
+      // the stubbed fetch resolves null, so the request rejects later; only the
+      // request opts are under test here
+      rest._makeAuthRequest('path', { a: 1, b: '', c: null, d: undefined }).catch(() => {})
 
-      assert(rpStub.lastCall, 'should be called')
+      t.ok(rpStub.lastCall, 'should be called')
       const reqOpts = rpStub.lastCall.args[1]
 
-      assert.equal(typeof reqOpts, 'object', 'argument isnt an object')
-      assert.deepStrictEqual(reqOpts.body, JSON.stringify({ a: 1, b: '' }))
+      t.is.coercively(typeof reqOpts, 'object', 'argument isnt an object')
+      t.alike(reqOpts.body, JSON.stringify({ a: 1, b: '' }))
     })
   })
 
-  describe('listener methods', () => {
+  t.test('listener methods', (t) => {
     const testMethod = (name, url, method, ...params) => {
-      describe(name, () => {
-        it('calls correct endpoint', (done) => {
+      t.test(name, (t) => {
+        t.test('calls correct endpoint', (t) => {
+          t.plan(1)
           const rest = new RESTv2()
-          rest[method] = (reqURL) => {
-            assert.strictEqual(reqURL, url)
-            done()
+          // async: some methods chain .then() on the request
+          rest[method] = async (reqURL) => {
+            t.is(reqURL, url)
           }
           rest[name](...params)
         })

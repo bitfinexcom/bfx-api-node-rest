@@ -1,10 +1,13 @@
-/* eslint-env mocha */
 'use strict'
 
-const assert = require('assert')
+const test = require('brittle')
+const http = require('http')
 const RESTv2 = require('../../lib/rest2')
 const { MockRESTv2Server } = require('bfx-api-mock-srv')
 const { Order } = require('bfx-api-node-models')
+
+// each test starts its own server: don't reuse keep-alive sockets (Node 19+ default)
+http.globalAgent = new http.Agent({ keepAlive: false })
 
 const getTestREST2 = (args = {}) => {
   return new RESTv2({
@@ -30,75 +33,75 @@ const getTestFundingCredit = () => ([
   null, null, null, 0.002, 7, 1524786468000, null, 0, 0, null, 0, 0.002, 0, null
 ])
 
-const auditTestFundingOffer = (fo = {}) => {
-  assert.strictEqual(fo.id, 41215275)
-  assert.strictEqual(fo.symbol, 'fUSD')
-  assert.strictEqual(fo.mtsCreate, 1524784806000)
-  assert.strictEqual(fo.mtsUpdate, 1524784806000)
-  assert.strictEqual(fo.amount, 1000)
-  assert.strictEqual(fo.amountOrig, 1000)
-  assert.strictEqual(fo.type, 'FRRDELTAVAR')
-  assert.strictEqual(fo.flags, 0)
-  assert.strictEqual(fo.status, 'ACTIVE')
-  assert.strictEqual(fo.rate, 0)
-  assert.strictEqual(fo.period, 30)
-  assert.strictEqual(fo.notify, false)
-  assert.strictEqual(fo.hidden, false)
-  assert.strictEqual(fo.renew, false)
-  assert.strictEqual(fo.rateReal, 0.00207328)
+const auditTestFundingOffer = (t, fo = {}) => {
+  t.is(fo.id, 41215275)
+  t.is(fo.symbol, 'fUSD')
+  t.is(fo.mtsCreate, 1524784806000)
+  t.is(fo.mtsUpdate, 1524784806000)
+  t.is(fo.amount, 1000)
+  t.is(fo.amountOrig, 1000)
+  t.is(fo.type, 'FRRDELTAVAR')
+  t.is(fo.flags, 0)
+  t.is(fo.status, 'ACTIVE')
+  t.is(fo.rate, 0)
+  t.is(fo.period, 30)
+  t.is(fo.notify, false)
+  t.is(fo.hidden, false)
+  t.is(fo.renew, false)
+  t.is(fo.rateReal, 0.00207328)
 }
 
-const auditTestFundingLoan = (fl = {}) => {
-  assert.strictEqual(fl.id, 2993678)
-  assert.strictEqual(fl.symbol, 'fUSD')
-  assert.strictEqual(fl.side, -1)
-  assert.strictEqual(fl.mtsCreate, 1524786468000)
-  assert.strictEqual(fl.mtsUpdate, 1524786468000)
-  assert.strictEqual(fl.amount, 200)
-  assert.strictEqual(fl.flags, 0)
-  assert.strictEqual(fl.status, 'ACTIVE')
-  assert.strictEqual(fl.rate, 0.002)
-  assert.strictEqual(fl.period, 7)
-  assert.strictEqual(fl.mtsOpening, 1524786468000)
-  assert.strictEqual(fl.mtsLastPayout, 1524786468000)
-  assert.strictEqual(fl.notify, false)
-  assert.strictEqual(fl.hidden, false)
-  assert.strictEqual(fl.renew, false)
-  assert.strictEqual(fl.rateReal, 0.002)
-  assert.strictEqual(fl.noClose, false)
+const auditTestFundingLoan = (t, fl = {}) => {
+  t.is(fl.id, 2993678)
+  t.is(fl.symbol, 'fUSD')
+  t.is(fl.side, -1)
+  t.is(fl.mtsCreate, 1524786468000)
+  t.is(fl.mtsUpdate, 1524786468000)
+  t.is(fl.amount, 200)
+  t.is(fl.flags, 0)
+  t.is(fl.status, 'ACTIVE')
+  t.is(fl.rate, 0.002)
+  t.is(fl.period, 7)
+  t.is(fl.mtsOpening, 1524786468000)
+  t.is(fl.mtsLastPayout, 1524786468000)
+  t.is(fl.notify, false)
+  t.is(fl.hidden, false)
+  t.is(fl.renew, false)
+  t.is(fl.rateReal, 0.002)
+  t.is(fl.noClose, false)
 }
 
-const auditTestFundingCredit = (fc = {}) => {
-  assert.strictEqual(fc.id, 26190108)
-  assert.strictEqual(fc.symbol, 'fUSD')
-  assert.strictEqual(fc.side, -1)
-  assert.strictEqual(fc.mtsCreate, 1524846786000)
-  assert.strictEqual(fc.mtsUpdate, 1524846786000)
-  assert.strictEqual(fc.amount, 32.91281465)
-  assert.strictEqual(fc.flags, 0)
-  assert.strictEqual(fc.status, 'ACTIVE')
-  assert.strictEqual(fc.rate, 0.002)
-  assert.strictEqual(fc.period, 7)
-  assert.strictEqual(fc.mtsOpening, 1524786468000)
-  assert.strictEqual(fc.mtsLastPayout, null)
-  assert.strictEqual(fc.notify, false)
-  assert.strictEqual(fc.hidden, false)
-  assert.strictEqual(fc.renew, false)
-  assert.strictEqual(fc.rateReal, 0.002)
-  assert.strictEqual(fc.noClose, false)
-  assert.strictEqual(fc.positionPair, null)
+const auditTestFundingCredit = (t, fc = {}) => {
+  t.is(fc.id, 26190108)
+  t.is(fc.symbol, 'fUSD')
+  t.is(fc.side, -1)
+  t.is(fc.mtsCreate, 1524846786000)
+  t.is(fc.mtsUpdate, 1524846786000)
+  t.is(fc.amount, 32.91281465)
+  t.is(fc.flags, 0)
+  t.is(fc.status, 'ACTIVE')
+  t.is(fc.rate, 0.002)
+  t.is(fc.period, 7)
+  t.is(fc.mtsOpening, 1524786468000)
+  t.is(fc.mtsLastPayout, null)
+  t.is(fc.notify, false)
+  t.is(fc.hidden, false)
+  t.is(fc.renew, false)
+  t.is(fc.rateReal, 0.002)
+  t.is(fc.noClose, false)
+  t.is(fc.positionPair, null)
 }
 
-describe('RESTv2 integration (mock server) tests', () => {
+test('RESTv2 integration (mock server) tests', async (t) => {
   let srv = null
 
-  afterEach(async () => {
+  const closeSrv = async () => {
     if (srv) {
       await srv.close()
     }
 
     srv = null
-  })
+  }
 
   // [rest2MethodName, finalMockResponseKey, rest2MethodArgs]
   const methods = [
@@ -154,61 +157,66 @@ describe('RESTv2 integration (mock server) tests', () => {
     ['getWeightedAverages', 'weighted_averages.sym.start.end.limit', [{ symbol: 'sym', start: 'start', end: 'end', limit: 'limit' }]]
   ]
 
-  methods.forEach((m) => {
+  for (const m of methods) {
     const name = m[0]
     const dataKey = m[1] || m[0]
     const args = m[2] || [{}]
 
-    it(`${name}: fetches expected data`, (done) => {
+    await t.test(`${name}: fetches expected data`, (t) => {
+      t.plan(1)
       srv = new MockRESTv2Server({ listen: true })
+      t.teardown(closeSrv)
       const r = getTestREST2()
       srv.setResponse(dataKey, [42])
 
       args.push((err, res) => {
         if (err) {
-          return done(err)
+          return t.fail(err.message)
         }
 
-        assert.deepStrictEqual(res, [42])
-        done()
+        t.alike(res, [42])
       })
 
       r[name].apply(r, args)
     })
-  })
+  }
 
-  it('correctly parses funding offer response', async () => {
+  await t.test('correctly parses funding offer response', async (t) => {
     srv = new MockRESTv2Server({ listen: true })
+    t.teardown(closeSrv)
     const r = getTestREST2({ transform: true })
 
     srv.setResponse('f_offers.fUSD', [getTestFundingOffer()])
 
     const [fo] = await r.fundingOffers({ symbol: 'fUSD' })
-    auditTestFundingOffer(fo)
+    auditTestFundingOffer(t, fo)
   })
 
-  it('correctly parses funding loan response', async () => {
+  await t.test('correctly parses funding loan response', async (t) => {
     srv = new MockRESTv2Server({ listen: true })
+    t.teardown(closeSrv)
     const r = getTestREST2({ transform: true })
 
     srv.setResponse('f_loans.fUSD', [getTestFundingLoan()])
 
     const [fo] = await r.fundingLoans({ symbol: 'fUSD' })
-    auditTestFundingLoan(fo)
+    auditTestFundingLoan(t, fo)
   })
 
-  it('correctly parses funding credit response', async () => {
+  await t.test('correctly parses funding credit response', async (t) => {
     srv = new MockRESTv2Server({ listen: true })
+    t.teardown(closeSrv)
     const r = getTestREST2({ transform: true })
 
     srv.setResponse('f_credits.fUSD', [getTestFundingCredit()])
 
     const [fc] = await r.fundingCredits({ symbol: 'fUSD' })
-    auditTestFundingCredit(fc)
+    auditTestFundingCredit(t, fc)
   })
 
-  it('correctly parses accountSummary response', async () => {
+  await t.test('correctly parses accountSummary response', async (t) => {
     srv = new MockRESTv2Server({ listen: true })
+    t.teardown(closeSrv)
     const r = getTestREST2({ transform: true })
 
     srv.setResponse('account_summary', [
@@ -222,18 +230,19 @@ describe('RESTv2 integration (mock server) tests', () => {
     ])
 
     const summary = await r.accountSummary()
-    assert.strictEqual(summary.makerFee, 0.001)
-    assert.strictEqual(summary.derivMakerRebate, -0.0002)
-    assert.strictEqual(summary.takerFeeToCrypto, 0.002)
-    assert.strictEqual(summary.takerFeeToStable, 0.0021)
-    assert.strictEqual(summary.takerFeeToFiat, 0.0022)
-    assert.strictEqual(summary.derivTakerFee, 0.00075)
-    assert.strictEqual(summary.leoLev, 0)
-    assert.strictEqual(summary.leoAmountAvg, 0.002)
+    t.is(summary.makerFee, 0.001)
+    t.is(summary.derivMakerRebate, -0.0002)
+    t.is(summary.takerFeeToCrypto, 0.002)
+    t.is(summary.takerFeeToStable, 0.0021)
+    t.is(summary.takerFeeToFiat, 0.0022)
+    t.is(summary.derivTakerFee, 0.00075)
+    t.is(summary.leoLev, 0)
+    t.is(summary.leoAmountAvg, 0.002)
   })
 
-  it('correctly parses symbolDetails response', async () => {
+  await t.test('correctly parses symbolDetails response', async (t) => {
     srv = new MockRESTv2Server({ listen: true })
+    t.teardown(closeSrv)
     const r = getTestREST2({ transform: true })
 
     srv.setResponse('info_pairs', [
@@ -244,23 +253,24 @@ describe('RESTv2 integration (mock server) tests', () => {
     ])
 
     const details = await r.symbolDetails()
-    assert.strictEqual(details[0].pair, 'BTCUSD')
-    assert.strictEqual(details[0].initialMargin, 0.2)
-    assert.strictEqual(details[0].minimumMargin, 0.1)
-    assert.strictEqual(details[0].maximumOrderSize, '2002.0')
-    assert.strictEqual(details[0].minimumOrderSize, '0.0002')
-    assert.strictEqual(details[0].margin, true)
+    t.is(details[0].pair, 'BTCUSD')
+    t.is(details[0].initialMargin, 0.2)
+    t.is(details[0].minimumMargin, 0.1)
+    t.is(details[0].maximumOrderSize, '2002.0')
+    t.is(details[0].minimumOrderSize, '0.0002')
+    t.is(details[0].margin, true)
 
-    assert.strictEqual(details[1].pair, 'BTCEUR')
-    assert.strictEqual(details[1].initialMargin, null)
-    assert.strictEqual(details[1].minimumMargin, null)
-    assert.strictEqual(details[1].maximumOrderSize, '2000.0')
-    assert.strictEqual(details[1].minimumOrderSize, '0.00021')
-    assert.strictEqual(details[1].margin, false)
+    t.is(details[1].pair, 'BTCEUR')
+    t.is(details[1].initialMargin, null)
+    t.is(details[1].minimumMargin, null)
+    t.is(details[1].maximumOrderSize, '2000.0')
+    t.is(details[1].minimumOrderSize, '0.00021')
+    t.is(details[1].margin, false)
   })
 
-  it('correctly parses keyPermissions response', async () => {
+  await t.test('correctly parses keyPermissions response', async (t) => {
     srv = new MockRESTv2Server({ listen: true })
+    t.teardown(closeSrv)
     const r = getTestREST2({ transform: true })
 
     srv.setResponse('auth_permissions', [
@@ -271,25 +281,26 @@ describe('RESTv2 integration (mock server) tests', () => {
     ])
 
     const perms = await r.keyPermissions()
-    assert.strictEqual(perms[0].key, 'account')
-    assert.strictEqual(perms[0].read, false)
-    assert.strictEqual(perms[0].write, false)
+    t.is(perms[0].key, 'account')
+    t.is(perms[0].read, false)
+    t.is(perms[0].write, false)
 
-    assert.strictEqual(perms[1].key, 'orders')
-    assert.strictEqual(perms[1].read, true)
-    assert.strictEqual(perms[1].write, false)
+    t.is(perms[1].key, 'orders')
+    t.is(perms[1].read, true)
+    t.is(perms[1].write, false)
 
-    assert.strictEqual(perms[2].key, 'funding')
-    assert.strictEqual(perms[2].read, false)
-    assert.strictEqual(perms[2].write, true)
+    t.is(perms[2].key, 'funding')
+    t.is(perms[2].read, false)
+    t.is(perms[2].write, true)
 
-    assert.strictEqual(perms[3].key, 'settings')
-    assert.strictEqual(perms[3].read, true)
-    assert.strictEqual(perms[3].write, true)
+    t.is(perms[3].key, 'settings')
+    t.is(perms[3].read, true)
+    t.is(perms[3].write, true)
   })
 
-  it('correctly executes closePosition method', async () => {
+  await t.test('correctly executes closePosition method', async (t) => {
     srv = new MockRESTv2Server({ listen: true })
+    t.teardown(closeSrv)
     const r = getTestREST2({ transform: true })
 
     const orderRes = [
@@ -321,11 +332,12 @@ describe('RESTv2 integration (mock server) tests', () => {
     ])
 
     const order = await r.closePosition({ position_id: 145287699 })
-    assert.deepStrictEqual(order.toJS(), new Order(orderRes).toJS())
+    t.alike(order.toJS(), new Order(orderRes).toJS())
   })
 
-  it('correctly executes closePosition method without transform', async () => {
+  await t.test('correctly executes closePosition method without transform', async (t) => {
     srv = new MockRESTv2Server({ listen: true })
+    t.teardown(closeSrv)
     const r = getTestREST2({ transform: false })
 
     const orderRes = [
@@ -357,11 +369,12 @@ describe('RESTv2 integration (mock server) tests', () => {
     ])
 
     const order = await r.closePosition({ position_id: 145287699 })
-    assert.deepStrictEqual(order, orderRes)
+    t.alike(order, orderRes)
   })
 
-  it('timeouts on a long-running request', async () => {
+  await t.test('timeouts on a long-running request', async (t) => {
     srv = new MockRESTv2Server({ listen: false })
+    t.teardown(closeSrv)
     srv._apiServer.get('/v2/slow', (req, res) => {
       setTimeout(() => {
         res.json([42])
@@ -372,14 +385,15 @@ describe('RESTv2 integration (mock server) tests', () => {
     const r = getTestREST2({ timeout: 100 })
     try {
       await r._makePublicRequest('/slow')
-      assert.fail('should have timed out')
+      t.fail('should have timed out')
     } catch (err) {
-      assert.strictEqual(err.message, 'request timed out after 100ms')
+      t.is(err.message, 'request timed out after 100ms')
     }
   })
 
-  it('succeeds when request is within timeout', async () => {
+  await t.test('succeeds when request is within timeout', async (t) => {
     srv = new MockRESTv2Server({ listen: false })
+    t.teardown(closeSrv)
     srv._apiServer.get('/v2/fast', (req, res) => {
       setTimeout(() => {
         res.json([42])
@@ -389,6 +403,6 @@ describe('RESTv2 integration (mock server) tests', () => {
 
     const r = getTestREST2({ timeout: 200 })
     const res = await r._makePublicRequest('/fast')
-    assert.deepStrictEqual(res, [42])
+    t.alike(res, [42])
   })
 })

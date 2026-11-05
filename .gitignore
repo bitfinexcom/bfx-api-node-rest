@@ -10,5 +10,4 @@ package-lock.json
 .env
 /dist
 tags
-.nyc_output
 coverage

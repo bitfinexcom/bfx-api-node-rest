@@ -1,9 +1,11 @@
-/* eslint-env mocha */
 'use strict'
 
-const assert = require('assert')
+const test = require('brittle')
 const http = require('http')
 const REST2 = require('../../lib/rest2')
+
+// each test starts its own server: don't reuse keep-alive sockets (Node 19+ default)
+http.globalAgent = new http.Agent({ keepAlive: false })
 
 const PORT = 1337
 const bhttp = new REST2({
@@ -14,10 +16,10 @@ const bhttp = new REST2({
 
 const testResBody = '["ente", "gans", "scholle"]'
 
-describe('rest2 api client: issue 80 - argumment length auth request', () => {
+test('rest2 api client: issue 80 - argumment length auth request', async (t) => {
   let server = null
 
-  beforeEach((done) => {
+  const startServer = () => new Promise((done) => {
     server = http.createServer((req, res) => {
       res.writeHead(200, { 'Content-Type': 'text/plain' })
       res.end(testResBody)
@@ -26,17 +28,21 @@ describe('rest2 api client: issue 80 - argumment length auth request', () => {
     server.listen(PORT, done)
   })
 
-  afterEach(() => {
+  const closeServer = () => {
     server.close()
-  })
+  }
 
-  it('errors if no payload defined', async () => {
+  await t.test('errors if no payload defined', async (t) => {
+    await startServer()
+    t.teardown(closeServer)
     await bhttp._makeAuthRequest('/auth/r/orders')
   })
 
-  it('succeeds with the right argument length', async () => {
+  await t.test('succeeds with the right argument length', async (t) => {
+    await startServer()
+    t.teardown(closeServer)
     const res = await bhttp._makeAuthRequest('/auth/r/orders', {})
 
-    assert.deepStrictEqual(res, ['ente', 'gans', 'scholle'])
+    t.alike(res, ['ente', 'gans', 'scholle'])
   })
 })
