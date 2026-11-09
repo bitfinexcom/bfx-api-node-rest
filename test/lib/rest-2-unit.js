@@ -5,12 +5,15 @@ const _isString = require('lodash/isString')
 const _isEmpty = require('lodash/isEmpty')
 const { SocksProxyAgent } = require('socks-proxy-agent')
 const proxyquire = require('proxyquire')
-const { stub } = require('sinon')
 
-const rpStub = stub()
+const fetchCalls = []
+const fetchStub = async (...args) => {
+  fetchCalls.push(args)
+  return null
+}
 
 const RESTv2 = proxyquire('../../lib/rest2', {
-  'node-fetch': rpStub.resolves(null)
+  'node-fetch': fetchStub
 })
 
 // TODO: Move other tests here where appropriate (unit)
@@ -67,8 +70,9 @@ test('RESTv2', (t) => {
       // request opts are under test here
       rest._makeAuthRequest('path', { a: 1, b: '', c: null, d: undefined }).catch(() => {})
 
-      t.ok(rpStub.lastCall, 'should be called')
-      const reqOpts = rpStub.lastCall.args[1]
+      const lastCall = fetchCalls.at(-1)
+      t.ok(lastCall, 'should be called')
+      const reqOpts = lastCall[1]
 
       t.is.coercively(typeof reqOpts, 'object', 'argument isnt an object')
       t.alike(reqOpts.body, JSON.stringify({ a: 1, b: '' }))
