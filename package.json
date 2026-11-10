@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@bitfinex/lint-js": "^1.1.0",
-    "bfx-api-mock-srv": "^3.0.0",
+    "bfx-api-mock-srv": "^4.0.0",
     "brittle": "^4.5.0",
     "proxyquire": "2.1.3",
     "socks-proxy-agent": "8.0.4"
