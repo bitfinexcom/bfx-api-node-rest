@@ -1,7 +1,6 @@
-/* eslint-env mocha */
 'use strict'
 
-const assert = require('assert')
+const test = require('brittle')
 const http = require('http')
 const REST2 = require('../../lib/rest2')
 
@@ -23,10 +22,10 @@ const testResBody = `[1765.3,
   1834.2,
   1726.3 ]`
 
-describe('rest2 api client', () => {
+test('rest2 api client', async (t) => {
   let server = null
 
-  afterEach((done) => {
+  const closeServer = () => new Promise((done) => {
     if (server) {
       server.close(() => {
         server = null
@@ -37,7 +36,8 @@ describe('rest2 api client', () => {
     }
   })
 
-  it('gets a response as JSON', async () => {
+  await t.test('gets a response as JSON', async (t) => {
+    t.teardown(closeServer)
     server = http.createServer((req, res) => {
       res.writeHead(200, { 'Content-Type': 'text/plain' })
       res.end(testResBody)
@@ -46,8 +46,8 @@ describe('rest2 api client', () => {
     return new Promise((resolve) => {
       server.listen(PORT, () => {
         bhttp.ticker({ symbol: 'tBTCUSD' }, (err, res) => {
-          assert.strictEqual(err, null)
-          assert.deepStrictEqual(res, JSON.parse(testResBody))
+          t.is(err, null)
+          t.alike(res, JSON.parse(testResBody))
 
           resolve()
         })

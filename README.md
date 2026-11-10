@@ -1,6 +1,5 @@
 # Bitfinex RESTv1 & RESTv2 APIs for Node.JS
 
-[![Build Status](https://travis-ci.org/bitfinexcom/bfx-api-node-rest.svg?branch=master)](https://travis-ci.org/bitfinexcom/bfx-api-node-rest)
 A Node.JS reference implementation of the Bitfinex REST APIs
 
 To use, construct a new instance of either the `RESTv1` or `RESTv2` classes.
@@ -35,8 +34,6 @@ const rest = new RESTv2({ transform: true })
 ### Docs
 
 Documentation at [https://docs.bitfinex.com/v2/reference](https://docs.bitfinex.com/v2/reference)
-
-[See `docs/`](/docs) for JSDoc generated documentation of available methods.
 
 ## Example
 

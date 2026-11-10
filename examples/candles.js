@@ -1,8 +1,5 @@
 'use strict'
 
-process.env.DEBUG = '*'
-
-const debug = require('debug')('bfx:api:rest:examples:candles')
 const { RESTv2 } = require('../')
 const rest = new RESTv2({ transform: true })
 
@@ -22,8 +19,8 @@ const run = async () => {
 
   const [lastCandle] = candles
 
-  debug('recv %d candles for %s %s', candles.length, SYMBOL, TIME_FRAME)
-  debug('latest %s', JSON.stringify({
+  console.log('recv %d candles for %s %s', candles.length, SYMBOL, TIME_FRAME)
+  console.log('latest %s', JSON.stringify({
     mts: new Date(lastCandle.mts).toLocaleString(),
     open: lastCandle.open,
     high: lastCandle.high,
@@ -36,5 +33,5 @@ const run = async () => {
 try {
   run()
 } catch (e) {
-  debug('error: %s', e.stack)
+  console.log('error: %s', e.stack)
 }

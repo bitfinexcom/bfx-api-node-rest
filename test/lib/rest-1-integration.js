@@ -1,16 +1,18 @@
-/* eslint-env mocha */
 'use strict'
 
 const PORT = 1339
 
-const assert = require('assert')
+const test = require('brittle')
 const http = require('http')
 const RESTv1 = require('../../lib/rest1')
 
-describe('rest integration test', () => {
+// each test starts its own server: don't reuse keep-alive sockets (Node 19+ default)
+http.globalAgent = new http.Agent({ keepAlive: false })
+
+test('rest integration test', async (t) => {
   let server = null
 
-  afterEach((done) => {
+  const closeServer = () => new Promise((done) => {
     if (server) {
       server.close(() => {
         server = null
@@ -21,7 +23,10 @@ describe('rest integration test', () => {
     }
   })
 
-  it('should get the fundingbook asks, zero bids, 100 asks', (done) => {
+  await t.test('should get the fundingbook asks, zero bids, 100 asks', (t) => {
+    t.plan(4)
+    t.teardown(closeServer)
+
     const opts = { limit_bids: 0, limit_asks: 10 }
     const bhttp = new RESTv1({ url: `http://localhost:${PORT}` })
 
@@ -46,16 +51,18 @@ describe('rest integration test', () => {
 
     server.listen(PORT, () => {
       bhttp.fundingbook('USD', opts, (err, data) => {
-        if (err) throw err
-        assert.ok(data)
-        assert.strictEqual(data.bids.length, 0)
-        assert.strictEqual(data.asks.length, 10)
-        done()
+        t.absent(err)
+        t.ok(data)
+        t.is(data.bids.length, 0)
+        t.is(data.asks.length, 10)
       })
     })
   })
 
-  it('new_order -- post_only: postonly used and true', (done) => {
+  await t.test('new_order -- post_only: postonly used and true', (t) => {
+    t.plan(2)
+    t.teardown(closeServer)
+
     const testResBody = '{}'
     const bhttp = new RESTv1({
       apiKey: 'dummykey',
@@ -69,18 +76,20 @@ describe('rest integration test', () => {
         Buffer.from(req.headers['x-bfx-payload'], 'base64').toString('ascii')
       )
 
-      assert.strictEqual(payload.post_only, true)
+      t.is(payload.post_only, true)
       res.end(testResBody)
     })
     server.listen(PORT, () => {
       bhttp.new_order('btcusd', '0.1', '0.1', 'bitfinex', 'buy', 'exchange limit', false, true, (err, data) => {
-        if (err) throw err
-        done()
+        t.absent(err)
       })
     })
   })
 
-  it('new_order -- post_only: postonly not used and hidden true', (done) => {
+  await t.test('new_order -- post_only: postonly not used and hidden true', (t) => {
+    t.plan(3)
+    t.teardown(closeServer)
+
     const testResBody = '{}'
     const bhttp = new RESTv1({
       apiKey: 'dummykey',
@@ -94,20 +103,22 @@ describe('rest integration test', () => {
         Buffer.from(req.headers['x-bfx-payload'], 'base64').toString('ascii')
       )
 
-      assert.strictEqual(payload.is_hidden, true)
-      assert.strictEqual(payload.post_only, undefined)
+      t.is(payload.is_hidden, true)
+      t.is(payload.post_only, undefined)
       res.end(testResBody)
     })
 
     server.listen(PORT, () => {
       bhttp.new_order('btcusd', '0.1', '0.1', 'bitfinex', 'buy', 'exchange limit', true, (err, data) => {
-        if (err) throw err
-        done()
+        t.absent(err)
       })
     })
   })
 
-  it('new_order -- post_only: postonly not used and hidden not used', (done) => {
+  await t.test('new_order -- post_only: postonly not used and hidden not used', (t) => {
+    t.plan(3)
+    t.teardown(closeServer)
+
     const testResBody = '{}'
     const bhttp = new RESTv1({
       apiKey: 'dummykey',
@@ -121,14 +132,13 @@ describe('rest integration test', () => {
         Buffer.from(req.headers['x-bfx-payload'], 'base64').toString('ascii')
       )
 
-      assert.strictEqual(payload.is_hidden, undefined)
-      assert.strictEqual(payload.post_only, undefined)
+      t.is(payload.is_hidden, undefined)
+      t.is(payload.post_only, undefined)
       res.end(testResBody)
     })
     server.listen(PORT, () => {
       bhttp.new_order('btcusd', '0.1', '0.1', 'bitfinex', 'buy', 'exchange limit', (err, data) => {
-        if (err) throw err
-        done()
+        t.absent(err)
       })
     })
   })

@@ -1,9 +1,6 @@
 'use strict'
 
-process.env.DEBUG = '*'
-
 const { Order } = require('bfx-api-node-models')
-const debug = require('debug')('bfx:api:rest:examples:ordermultiop')
 const { RESTv2 } = require('../')
 
 /**
@@ -47,8 +44,8 @@ const runOrderNew = async () => {
   ]
   const response = await rest2.orderMultiOp(ops)
 
-  debug('Order new submit status: %s', response.status)
-  debug('Order new submit message: %s', response.text)
+  console.log('Order new submit status: %s', response.status)
+  console.log('Order new submit message: %s', response.text)
 }
 
 /**
@@ -62,8 +59,8 @@ const runOrderCancel = async () => {
   ]
   const response = await rest2.orderMultiOp(ops)
 
-  debug('Order cancel status: %s', response.status)
-  debug('Order cancel message: %s', response.text)
+  console.log('Order cancel status: %s', response.status)
+  console.log('Order cancel message: %s', response.text)
 }
 
 /**
@@ -77,8 +74,8 @@ const runOrderCancelMulti = async () => {
   ]
   const response = await rest2.orderMultiOp(ops)
 
-  debug('Order cancel multi status: %s', response.status)
-  debug('Order cancel multi message: %s', response.text)
+  console.log('Order cancel multi status: %s', response.status)
+  console.log('Order cancel multi message: %s', response.text)
 }
 
 /**
@@ -92,8 +89,8 @@ const runOrderUpdate = async () => {
   ]
   const response = await rest2.orderMultiOp(ops)
 
-  debug('Order update status: %s', response.status)
-  debug('Order update message: %s', response.text)
+  console.log('Order update status: %s', response.status)
+  console.log('Order update message: %s', response.text)
 }
 
 /**
@@ -122,8 +119,8 @@ const runMixMultiple = async () => {
   ]
   const response = await rest2.orderMultiOp(ops)
 
-  debug('Mixed operations status: %s', response.status)
-  debug('Mixed operations message: %s', response.text)
+  console.log('Mixed operations status: %s', response.status)
+  console.log('Mixed operations message: %s', response.text)
 }
 
 try {
@@ -133,5 +130,5 @@ try {
   runOrderUpdate()
   runMixMultiple()
 } catch (error) {
-  debug('error: %s', error.stack)
+  console.log('error: %s', error.stack)
 }

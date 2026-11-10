@@ -6,9 +6,7 @@ npm-debug.log
 source/images
 .DS_Store
 todo
-package-lock.json
 .env
 /dist
 tags
-.nyc_output
 coverage

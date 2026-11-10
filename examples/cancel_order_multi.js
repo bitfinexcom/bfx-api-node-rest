@@ -1,8 +1,5 @@
 'use strict'
 
-process.env.DEBUG = '*'
-
-const debug = require('debug')('bfx:api:rest:examples:cancelordermulti')
 const { RESTv2 } = require('../')
 
 /**
@@ -24,8 +21,8 @@ const cancelOrdersById = async () => {
     id: orderIDs
   })
 
-  debug('Cancel orders by ID status: %s', response.status)
-  debug('Cancel orders by ID message: %s', response.text)
+  console.log('Cancel orders by ID status: %s', response.status)
+  console.log('Cancel orders by ID message: %s', response.text)
 }
 
 /**
@@ -41,8 +38,8 @@ const cancelOrdersByClientOrderId = async () => {
     ]
   })
 
-  debug('Cancel orders by client order ID status: %s', response.status)
-  debug('Cancel orders by client order ID message: %s', response.text)
+  console.log('Cancel orders by client order ID status: %s', response.status)
+  console.log('Cancel orders by client order ID message: %s', response.text)
 }
 
 /**
@@ -55,8 +52,8 @@ const cancelOrdersByGroupId = async () => {
     gid: groupIDs
   })
 
-  debug('Cancel orders by group ID status: %s', response.status)
-  debug('Cancel orders by group ID message: %s', response.text)
+  console.log('Cancel orders by group ID status: %s', response.status)
+  console.log('Cancel orders by group ID message: %s', response.text)
 }
 
 /**
@@ -77,8 +74,8 @@ const runMixMultiple = async () => {
     ]
   })
 
-  debug('Mixed operations status: %s', response.status)
-  debug('Mixed operations message: %s', response.text)
+  console.log('Mixed operations status: %s', response.status)
+  console.log('Mixed operations message: %s', response.text)
 }
 
 try {
@@ -87,5 +84,5 @@ try {
   cancelOrdersByClientOrderId()
   runMixMultiple()
 } catch (error) {
-  debug('error: %s', error.stack)
+  console.log('error: %s', error.stack)
 }
