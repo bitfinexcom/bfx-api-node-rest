@@ -1,4 +1,7 @@
-#9.0.1
+# 9.0.2
+- bump bfx-api-node-models and bfx-api-node-util
+
+# 9.0.1
 - bump bfx-api-mock-srv to 4.0.1
 
 # 9.0.0
